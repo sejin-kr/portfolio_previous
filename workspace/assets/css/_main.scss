@@ -204,8 +204,35 @@ header {
       }
     }
 
-    .floating-txt {
-      display: none;
+    .marquee-text {
+      display: flex;
+      align-items: center;
+      height: 15vh;
+
+      .swiper-wrapper {
+        align-items: center;
+        -webkit-transition-timing-function: linear !important;
+        transition-timing-function: linear !important;
+      }
+
+      .swiper-slide {
+        display: flex;
+        align-items: center;
+        width: auto !important;
+      }
+
+      .svg {
+        width: 25px;
+        height: 25px;
+        margin-right: 20px;
+      }
+      p {
+        font-family: 'diatype';
+        font-size: 30px;
+        font-weight: 400;
+        color: $default-bl-color;
+        line-height: 150%;
+      }
     }
   }
 }

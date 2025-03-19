@@ -51,6 +51,26 @@ function splitTextEffect() {
   });
 }
 
+// * =============== marquee text ===============v *//
+function marqueeTextEffect() {
+  const swiper = new Swiper('.marqueeSwiper', {
+    slidesPerView: 'auto',
+    speed: 3000,
+    centeredSlides: true,
+    loop: true,
+    spaceBetween: 20,
+    autoplay: {
+      delay: 1,
+      disableOnInteraction: false,
+    },
+    freemode: false,
+    allowTouchMove: false,
+    disabledOnInteraction: true,
+    loopAdditionalSlides: 1,
+  });
+}
+
 window.addEventListener('load', function () {
   splitTextEffect();
+  marqueeTextEffect();
 });

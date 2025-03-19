@@ -1132,8 +1132,32 @@ header nav a {
 	opacity: 0;
 	transition: opacity 0.4s ease-out;
 }
-.content .sec-work .floating-txt {
-	display: none;
+.content .sec-work .marquee-text {
+	display: flex;
+	align-items: center;
+	height: 15vh;
+}
+.content .sec-work .marquee-text .swiper-wrapper {
+	align-items: center;
+	-webkit-transition-timing-function: linear !important;
+	transition-timing-function: linear !important;
+}
+.content .sec-work .marquee-text .swiper-slide {
+	display: flex;
+	align-items: center;
+	width: auto !important;
+}
+.content .sec-work .marquee-text .svg {
+	width: 25px;
+	height: 25px;
+	margin-right: 20px;
+}
+.content .sec-work .marquee-text p {
+	font-family: "diatype";
+	font-size: 30px;
+	font-weight: 400;
+	color: #181818;
+	line-height: 150%;
 }
 
 footer {
