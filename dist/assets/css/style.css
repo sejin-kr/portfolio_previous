@@ -1137,6 +1137,10 @@ header nav a {
 	align-items: center;
 	height: 15vh;
 }
+.content .sec-work .marquee-text .swiper {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
 .content .sec-work .marquee-text .swiper-wrapper {
 	align-items: center;
 	-webkit-transition-timing-function: linear !important;

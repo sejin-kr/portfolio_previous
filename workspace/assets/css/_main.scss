@@ -209,6 +209,10 @@ header {
       align-items: center;
       height: 15vh;
 
+      .swiper {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
       .swiper-wrapper {
         align-items: center;
         -webkit-transition-timing-function: linear !important;

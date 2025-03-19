@@ -55,18 +55,18 @@ function splitTextEffect() {
 function marqueeTextEffect() {
   const swiper = new Swiper('.marqueeSwiper', {
     slidesPerView: 'auto',
-    speed: 3000,
-    centeredSlides: true,
+    speed: 2500,
+    // centeredSlides: true,
     loop: true,
     spaceBetween: 20,
     autoplay: {
-      delay: 1,
+      delay: 0,
       disableOnInteraction: false,
     },
     freemode: false,
     allowTouchMove: false,
     disabledOnInteraction: true,
-    loopAdditionalSlides: 1,
+    loopAdditionalSlides: 6,
   });
 }
 
