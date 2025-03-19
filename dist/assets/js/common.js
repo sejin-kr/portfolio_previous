@@ -1,0 +1,58 @@
+// * =============== split text ===============v *//
+function splitTextEffect() {
+  document.querySelectorAll('.card').forEach((card) => {
+    const title = new SplitText(card.querySelector('.tit strong'), { type: 'chars' });
+    const text = new SplitText(card.querySelector('.tit span'), { type: 'chars' });
+
+    gsap.set(title.chars, { y: '-10px', opacity: 0, filter: 'blur(15px)' });
+    gsap.set(text.chars, { y: '-5px', opacity: 0, filter: 'blur(15px)' });
+
+    // 마우스 호버 시 애니메이션
+    card.addEventListener('mouseenter', function () {
+      gsap.to(title.chars, {
+        y: '0',
+        filter: 'blur(0px)',
+        opacity: 1,
+        stagger: () => gsap.utils.random(0, 0.2),
+        duration: 0.6,
+        ease: 'power2.out',
+      });
+
+      gsap.to(text.chars, {
+        y: '0',
+        filter: 'blur(0px)',
+        opacity: 1,
+        stagger: () => gsap.utils.random(0, 0.3),
+        duration: 0.6,
+        ease: 'power2.out',
+      });
+    });
+
+    // 마우스 떠날 때 원래 위치로 복귀
+    card.addEventListener('mouseleave', function () {
+      gsap.to(title.chars, {
+        y: '10px',
+        filter: 'blur(10px)',
+        opacity: 0,
+        stagger: () => gsap.utils.random(0, 0.2),
+        duration: 0.5,
+        ease: 'power2.in',
+        onComplete: () => gsap.set(title.chars, { y: '-10px', opacity: 0, filter: 'blur(15px)' }), // 원래 상태로 복귀
+      });
+
+      gsap.to(text.chars, {
+        y: '10px',
+        filter: 'blur(10px)',
+        opacity: 0,
+        stagger: () => gsap.utils.random(0, 0.3),
+        duration: 0.5,
+        ease: 'power2.in',
+        onComplete: () => gsap.set(text.chars, { y: '-5px', opacity: 0, filter: 'blur(15px)' }), // 원래 상태로 복귀
+      });
+    });
+  });
+}
+
+window.addEventListener('load', function () {
+  splitTextEffect();
+});

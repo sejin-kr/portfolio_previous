@@ -1,1 +1,9 @@
-//* =============== Header =============== *//
+@charset "UTF-8";
+
+// default
+@import './reset';
+@import './font';
+@import './variables';
+
+// page
+@import './main';
