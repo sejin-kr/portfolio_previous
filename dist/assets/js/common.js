@@ -1,6 +1,7 @@
 // * =============== cursor ===============v *//
 function cursorFunc() {
   const cursor = document.getElementById('cursor');
+  const cards = document.querySelectorAll('.card');
 
   if (!cursor) return;
 
@@ -30,6 +31,17 @@ function cursorFunc() {
   }
 
   animateCursor();
+
+  // ✨ 카드에 마우스 올리면 cursor_preview 클래스 추가
+  cards.forEach((item) => {
+    item.addEventListener('mouseenter', () => {
+      cursor.classList.add('cursor_preview');
+    });
+
+    item.addEventListener('mouseleave', () => {
+      cursor.classList.remove('cursor_preview');
+    });
+  });
 }
 
 // * =============== split text ===============v *//

@@ -1245,6 +1245,29 @@ footer .backToTop {
 	transform: translate(-50%, -50%);
 	transition: transform 0.1s ease-out;
 	will-change: transform, top, left;
+	padding: 0;
 	z-index: 99999;
 	opacity: 1;
+	transition: padding 0.3s ease, background-color 0.3s ease;
+}
+
+.cursor_preview {
+	position: absolute;
+	width: auto !important;
+	height: auto !important;
+	padding: 10px 20px !important;
+	text-align: center;
+	color: #181818;
+	background-color: #fff !important;
+	border-radius: 20px !important;
+}
+.cursor_preview::before {
+	content: "Explore";
+	display: inline-block;
+	font-size: 14px;
+	color: #181818;
+	line-height: 150%;
+	font-weight: 500;
+	opacity: 1;
+	transition: all 0.3s ease;
 }
