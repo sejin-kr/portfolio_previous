@@ -1,3 +1,37 @@
+// * =============== cursor ===============v *//
+function cursorFunc() {
+  const cursor = document.getElementById('cursor');
+
+  if (!cursor) return;
+
+  // 실제 마우스 좌표
+  let mouseX = 0;
+  let mouseY = 0;
+
+  // 커서 위치 (부드럽게 이동할 좌표)
+  let cursorX = 0;
+  let cursorY = 0;
+
+  const speed = 0.1;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function animateCursor() {
+    cursorX += (mouseX - cursorX) * speed;
+    cursorY += (mouseY - cursorY) * speed;
+
+    cursor.style.left = `${cursorX}px`;
+    cursor.style.top = `${cursorY}px`;
+
+    requestAnimationFrame(animateCursor);
+  }
+
+  animateCursor();
+}
+
 // * =============== split text ===============v *//
 function splitTextEffect() {
   document.querySelectorAll('.card').forEach((card) => {
@@ -55,8 +89,7 @@ function splitTextEffect() {
 function marqueeTextEffect() {
   const swiper = new Swiper('.marqueeSwiper', {
     slidesPerView: 'auto',
-    speed: 2500,
-    // centeredSlides: true,
+    speed: 4000,
     loop: true,
     spaceBetween: 20,
     autoplay: {
@@ -66,11 +99,13 @@ function marqueeTextEffect() {
     freemode: false,
     allowTouchMove: false,
     disabledOnInteraction: true,
-    loopAdditionalSlides: 6,
+    loopAdditionalSlides: 1,
+    // centeredSlides: true,
   });
 }
 
 window.addEventListener('load', function () {
+  cursorFunc();
   splitTextEffect();
   marqueeTextEffect();
 });
