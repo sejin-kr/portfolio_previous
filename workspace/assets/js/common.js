@@ -2,6 +2,8 @@
 function cursorFunc() {
   const cursor = document.getElementById('cursor');
   const cards = document.querySelectorAll('.card');
+  const footer = document.querySelector('footer');
+  const footerText = document.querySelector('footer .f-txt');
 
   if (!cursor) return;
 
@@ -32,7 +34,7 @@ function cursorFunc() {
 
   animateCursor();
 
-  // ✨ 카드에 마우스 올리면 cursor_preview 클래스 추가
+  // ✨ 카드에 호버시 cursor_preview 클래스 추가
   cards.forEach((item) => {
     item.addEventListener('mouseenter', () => {
       cursor.classList.add('cursor_preview');
@@ -41,6 +43,22 @@ function cursorFunc() {
     item.addEventListener('mouseleave', () => {
       cursor.classList.remove('cursor_preview');
     });
+  });
+
+  // ✨ footer 호버시 클래스 추가
+  footer.addEventListener('mouseenter', () => {
+    cursor.classList.add('cursor_point');
+  });
+  footer.addEventListener('mouseleave', () => {
+    cursor.classList.remove('cursor_point');
+  });
+
+  // ✨ footer text 호버시 클래스 추가
+  footerText.addEventListener('mouseenter', () => {
+    cursor.classList.add('cursor_copyEmail');
+  });
+  footerText.addEventListener('mouseleave', () => {
+    cursor.classList.remove('cursor_copyEmail');
   });
 }
 
@@ -116,8 +134,14 @@ function marqueeTextEffect() {
   });
 }
 
+// * =============== sticky scrolling card ===============v *//
+function scrollCardsFunc() {
+  console.log('sticky card loaded!');
+}
+
 window.addEventListener('load', function () {
   cursorFunc();
   splitTextEffect();
   marqueeTextEffect();
+  scrollCardsFunc();
 });

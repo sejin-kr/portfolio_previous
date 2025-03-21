@@ -6,6 +6,10 @@ header {
   left: 0;
   z-index: 5;
 
+  // backdrop filter
+  // background: transparent;
+  // backdrop-filter: blur(10px);
+
   .inner {
     width: 100%;
     max-width: 1440px;
@@ -37,6 +41,11 @@ header {
       color: $default-bl-color;
       font-weight: 300;
       line-height: 150%;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: $point-color;
+      }
     }
   }
 }
@@ -365,4 +374,37 @@ footer {
     opacity: 1;
     transition: all 0.3s ease;
   }
+}
+
+.cursor_point {
+  background-color: $point-color !important;
+}
+
+.cursor_copyEmail {
+  position: absolute;
+  width: auto !important;
+  height: auto !important;
+  padding: 40px 45px !important;
+  text-align: center;
+  color: $default-bl-color;
+  background-color: $wh-color !important;
+  border-radius: 50% !important;
+  mix-blend-mode: difference;
+
+  &::before {
+    content: 'Copy \A Email';
+    display: inline-block;
+    font-size: 14px;
+    color: $default-bl-color;
+    line-height: 125%;
+    font-weight: 600;
+    white-space: pre;
+    text-align: center;
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
+}
+
+.cursor_invert {
+  filter: invert(1);
 }
