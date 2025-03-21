@@ -115,6 +115,39 @@ function splitTextEffect() {
   });
 }
 
+// * =============== split nav ===============v *//
+function splitNavEffect() {
+  const menuItems = document.querySelectorAll('nav a');
+
+  menuItems.forEach((item) => {
+    // SplitText 적용
+    let split = new SplitText(item, { type: 'chars' });
+
+    // 기본 상태 설정 (처음에는 y: 0)
+    gsap.set(split.chars, { y: 0, opacity: 1 });
+
+    // 마우스 호버 이벤트
+    item.addEventListener('mouseenter', () => {
+      let tl = gsap.timeline();
+
+      tl.to(split.chars, {
+        y: -10,
+        duration: 0.25,
+        stagger: 0.05,
+        ease: 'power2.out',
+      }).to(split.chars, {
+        y: 0,
+        duration: 0.25,
+        stagger: 0.05,
+        ease: 'power2.inOut',
+      });
+    });
+  });
+}
+
+// 실행
+splitNavEffect();
+
 // * =============== marquee text ===============v *//
 function marqueeTextEffect() {
   const swiper = new Swiper('.marqueeSwiper', {
@@ -136,12 +169,16 @@ function marqueeTextEffect() {
 
 // * =============== sticky scrolling card ===============v *//
 function scrollCardsFunc() {
+  const text = document.querySelector('.typo-wrap');
+  const listItem = document.querySelector('.card-content ul');
+
   console.log('sticky card loaded!');
 }
 
 window.addEventListener('load', function () {
   cursorFunc();
   splitTextEffect();
+  splitNavEffect();
   marqueeTextEffect();
   scrollCardsFunc();
 });

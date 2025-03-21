@@ -34,18 +34,18 @@ header {
       gap: 16px;
       flex-wrap: nowrap;
     }
+    li {
+      overflow: hidden;
+    }
     li,
-    a {
+    a,
+    div {
       font-family: 'diatype';
       font-size: 14px;
       color: $default-bl-color;
       font-weight: 300;
       line-height: 150%;
       transition: all 0.3s ease-in-out;
-
-      &:hover {
-        color: $point-color;
-      }
     }
   }
 }
