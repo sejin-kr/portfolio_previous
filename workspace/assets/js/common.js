@@ -1,8 +1,8 @@
 // * =============== scrollSmoother ===============v *//
 function scrollSmoother() {
   ScrollSmoother.create({
-    smooth: 1.5,
-    speed: 0.8,
+    smooth: 1.25,
+    speed: 0.9,
     effects: true,
   });
 }
@@ -126,36 +126,45 @@ function splitTextEffect() {
 
 // * =============== split nav ===============v *//
 function splitNavEffect() {
-  const menuItems = document.querySelectorAll('nav a');
+  const menuItems = document.querySelectorAll('nav li');
 
   menuItems.forEach((item) => {
-    // SplitText 적용
-    let split = new SplitText(item, { type: 'chars' });
+    const splitLines = item.querySelectorAll('.split-line');
+    if (splitLines.length < 2) return; // 두 개의 요소가 없는 경우 건너뜀
 
-    // 기본 상태 설정 (처음에는 y: 0)
-    gsap.set(split.chars, { y: 0, opacity: 1 });
+    const splitText1 = new SplitText(splitLines[0], { type: 'chars' });
+    const splitText2 = new SplitText(splitLines[1], { type: 'chars' });
 
-    // 마우스 호버 이벤트
     item.addEventListener('mouseenter', () => {
-      let tl = gsap.timeline();
-
-      tl.to(split.chars, {
-        y: -10,
-        duration: 0.25,
-        stagger: 0.05,
+      cursor.classList.add('cursor_nav');
+      gsap.to(splitLines[0], {
+        y: '-100%',
+        duration: 0.2,
         ease: 'power2.out',
-      }).to(split.chars, {
+      });
+      gsap.to(splitLines[1], {
+        y: '-100%',
+        duration: 0.2,
+        ease: 'power2.out',
+      });
+    });
+
+    item.addEventListener('mouseleave', () => {
+      cursor.classList.remove('cursor_nav');
+
+      gsap.to(splitLines[0], {
         y: 0,
-        duration: 0.25,
-        stagger: 0.05,
-        ease: 'power2.inOut',
+        duration: 0.2,
+        ease: 'power2.out',
+      });
+      gsap.to(splitLines[1], {
+        y: '100%',
+        duration: 0.2,
+        ease: 'power2.out',
       });
     });
   });
 }
-
-// 실행
-splitNavEffect();
 
 // * =============== marquee text ===============v *//
 function marqueeTextEffect() {
