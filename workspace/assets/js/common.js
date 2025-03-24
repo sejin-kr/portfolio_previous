@@ -1,8 +1,10 @@
+gsap.registerPlugin(ScrollTrigger);
+
 // * =============== scrollSmoother ===============v *//
 function scrollSmoother() {
   ScrollSmoother.create({
-    smooth: 1.25,
-    speed: 0.9,
+    smooth: 1,
+    speed: 0.95,
     effects: true,
   });
 }
@@ -158,7 +160,7 @@ function splitNavEffect() {
         ease: 'power2.out',
       });
       gsap.to(splitLines[1], {
-        y: '100%',
+        y: 0,
         duration: 0.2,
         ease: 'power2.out',
       });
@@ -193,6 +195,22 @@ function scrollCardsFunc() {
   console.log('sticky card loaded!');
 }
 
+// * =============== scrollTrigger - footer ===============v *//
+function scrollFooter() {
+  gsap.to('.content', {
+    scrollTrigger: {
+      trigger: 'footer',
+      start: 'top-=70% center',
+      end: 'top top',
+      // markers: true,
+      scrub: 1,
+    },
+    scale: 0.97,
+    borderBottomLeftRadius: '20px',
+    borderBottomRightRadius: '20px',
+  });
+}
+
 window.addEventListener('load', function () {
   scrollSmoother();
   cursorFunc();
@@ -200,4 +218,5 @@ window.addEventListener('load', function () {
   splitNavEffect();
   marqueeTextEffect();
   scrollCardsFunc();
+  scrollFooter();
 });
