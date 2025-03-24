@@ -1,3 +1,12 @@
+// * =============== scrollSmoother ===============v *//
+function scrollSmoother() {
+  ScrollSmoother.create({
+    smooth: 1.5,
+    speed: 0.8,
+    effects: true,
+  });
+}
+
 // * =============== cursor ===============v *//
 function cursorFunc() {
   const cursor = document.getElementById('cursor');
@@ -176,6 +185,7 @@ function scrollCardsFunc() {
 }
 
 window.addEventListener('load', function () {
+  scrollSmoother();
   cursorFunc();
   splitTextEffect();
   splitNavEffect();
