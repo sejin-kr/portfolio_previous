@@ -66,10 +66,10 @@ function cursorFunc() {
 
   // ✨ footer text 호버시 클래스 추가
   footerText.addEventListener('mouseenter', () => {
-    cursor.classList.add('cursor_copyEmail');
+    cursor.classList.add('cursor_sendEmail');
   });
   footerText.addEventListener('mouseleave', () => {
-    cursor.classList.remove('cursor_copyEmail');
+    cursor.classList.remove('cursor_sendEmail');
   });
 }
 
@@ -189,10 +189,19 @@ function marqueeTextEffect() {
 
 // * =============== sticky scrolling card ===============v *//
 function scrollCardsFunc() {
-  const text = document.querySelector('.typo-wrap');
-  const listItem = document.querySelector('.card-content ul');
-
-  console.log('sticky card loaded!');
+  // const text = document.querySelector('.typo-wrap');
+  // const listItem = document.querySelector('.card-content ul li');
+  // const tl = gsap.timeline({
+  //   scrollTrigger: {
+  //     trigger: text,
+  //     pin: true,
+  //     scrub: 0.3,
+  //     start: 'top top',
+  //     // end: "+=3000"
+  //     markers: true,
+  //   },
+  // });
+  // gsap.to(text, {});
 }
 
 // * =============== scrollTrigger - footer ===============v *//
@@ -202,8 +211,8 @@ function scrollFooter() {
       trigger: 'footer',
       start: 'top-=70% center',
       end: 'top top',
-      // markers: true,
       scrub: 1,
+      // markers: true,
     },
     scale: 0.97,
     borderBottomLeftRadius: '20px',

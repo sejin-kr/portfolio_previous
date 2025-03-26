@@ -403,7 +403,7 @@ footer {
   box-shadow: inset 0 0 2px 2px #7e7e7e;
 }
 
-.cursor_copyEmail {
+.cursor_sendEmail {
   position: absolute;
   width: auto !important;
   height: auto !important;
@@ -416,7 +416,7 @@ footer {
   box-shadow: none;
 
   &::before {
-    content: 'Copy \A Email';
+    content: 'Send \A Email';
     display: inline-block;
     font-size: 14px;
     color: $default-bl-color;
