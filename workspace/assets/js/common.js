@@ -127,41 +127,118 @@ function splitTextEffect() {
 }
 
 // * =============== split nav ===============v *//
+// function splitNavEffect() {
+//   const menuItems = document.querySelectorAll('nav li');
+//   const menuText = document.querySelector('.menu .word');
+
+//   console.log(menuText);
+
+//   menuItems.forEach((item) => {
+//     const splitLines = item.querySelectorAll('.split-line');
+//     if (splitLines.length < 2) return; // 두 개의 요소가 없는 경우 건너뜀
+
+//     const splitText1 = new SplitText(splitLines[0], { type: 'chars' });
+//     const splitText2 = new SplitText(splitLines[1], { type: 'chars' });
+
+//     item.addEventListener('mouseenter', () => {
+//       // cursor.classList.add('cursor_nav');
+//       gsap.to(splitLines[0], {
+//         y: '-100%',
+//         duration: 0.15,
+//         ease: 'power2.out',
+//       });
+//       gsap.to(splitLines[1], {
+//         y: '-100%',
+//         duration: 0.15,
+//         ease: 'power2.out',
+//       });
+//     });
+
+//     item.addEventListener('mouseleave', () => {
+//       // cursor.classList.remove('cursor_nav');
+
+//       gsap.to(splitLines[0], {
+//         y: 0,
+//         duration: 0.15,
+//         ease: 'power2.out',
+//       });
+//       gsap.to(splitLines[1], {
+//         y: 0,
+//         duration: 0.15,
+//         ease: 'power2.out',
+//       });
+//     });
+//   });
+
+// }
+
 function splitNavEffect() {
   const menuItems = document.querySelectorAll('nav li');
+  const menuText = document.querySelector('.menu .word');
+
+  if (menuText) {
+    const splitLines = menuText.querySelectorAll('.split-line');
+    if (splitLines.length < 2) return;
+
+    const splitText1 = new SplitText(splitLines[0], { type: 'chars' });
+    const splitText2 = new SplitText(splitLines[1], { type: 'chars' });
+
+    menuText.addEventListener('mouseenter', () => {
+      gsap.to(splitLines[0], {
+        y: '-100%',
+        duration: 0.15,
+        ease: 'power2.out',
+      });
+      gsap.to(splitLines[1], {
+        y: '-100%',
+        duration: 0.15,
+        ease: 'power2.out',
+      });
+    });
+
+    menuText.addEventListener('mouseleave', () => {
+      gsap.to(splitLines[0], {
+        y: 0,
+        duration: 0.15,
+        ease: 'power2.out',
+      });
+      gsap.to(splitLines[1], {
+        y: 0,
+        duration: 0.15,
+        ease: 'power2.out',
+      });
+    });
+  }
 
   menuItems.forEach((item) => {
     const splitLines = item.querySelectorAll('.split-line');
-    if (splitLines.length < 2) return; // 두 개의 요소가 없는 경우 건너뜀
+    if (splitLines.length < 2) return;
 
     const splitText1 = new SplitText(splitLines[0], { type: 'chars' });
     const splitText2 = new SplitText(splitLines[1], { type: 'chars' });
 
     item.addEventListener('mouseenter', () => {
-      cursor.classList.add('cursor_nav');
       gsap.to(splitLines[0], {
         y: '-100%',
-        duration: 0.2,
+        duration: 0.15,
         ease: 'power2.out',
       });
       gsap.to(splitLines[1], {
         y: '-100%',
-        duration: 0.2,
+        duration: 0.15,
         ease: 'power2.out',
       });
     });
 
     item.addEventListener('mouseleave', () => {
-      cursor.classList.remove('cursor_nav');
-
       gsap.to(splitLines[0], {
         y: 0,
-        duration: 0.2,
+        duration: 0.15,
         ease: 'power2.out',
       });
       gsap.to(splitLines[1], {
         y: 0,
-        duration: 0.2,
+        duration: 0.15,
         ease: 'power2.out',
       });
     });
@@ -189,35 +266,53 @@ function marqueeTextEffect() {
 
 // * =============== sticky scrolling card ===============v *//
 function scrollCardsFunc() {
-  // const text = document.querySelector('.typo-wrap');
-  // const listItem = document.querySelector('.card-content ul li');
-  // const tl = gsap.timeline({
-  //   scrollTrigger: {
-  //     trigger: text,
-  //     pin: true,
-  //     scrub: 0.3,
-  //     start: 'top top',
-  //     // end: "+=3000"
-  //     markers: true,
-  //   },
+  const contentWrap = document.querySelector('.sec-work .content-wrap');
+  const listItem = document.querySelector('.card-content ul li');
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      // trigger: contentWrap,
+      pin: true,
+      scrub: 0.3,
+      start: 'top top',
+      pin: '.typo-wrap',
+      end: () => `+=${listItem.length * 300}`, // 리스트 개수에 따라 스크롤 길이 조정
+      // markers: true,
+    },
+  });
+
+  // listItem.forEach((item, index) => {
+  //   tl.to(item, { y: 0, duration: 0.5 }, index * 0.3);
   // });
-  // gsap.to(text, {});
+
+  // tl.add(() => {
+  //   ScrollTrigger.getById('scrollTriggerId')?.kill();
+  // });
 }
 
 // * =============== scrollTrigger - footer ===============v *//
 function scrollFooter() {
-  gsap.to('.content', {
+  const tl = gsap.timeline({
     scrollTrigger: {
       trigger: 'footer',
-      start: 'top-=70% center',
+      start: 'top-=50% center',
       end: 'top top',
+      ease: 'power2.out',
       scrub: 1,
       // markers: true,
     },
+  });
+
+  tl.to('.main > .content', {
     scale: 0.97,
     borderBottomLeftRadius: '20px',
     borderBottomRightRadius: '20px',
-  });
+  }).fromTo(
+    'footer .content',
+    { opacity: 0.7, y: '-25%' },
+    { opacity: 1, y: 0 },
+    0 // 두 tl 모두 동시에 동작
+  );
 }
 
 window.addEventListener('load', function () {
@@ -229,3 +324,5 @@ window.addEventListener('load', function () {
   scrollCardsFunc();
   scrollFooter();
 });
+
+// https://locomotive.ca/en
