@@ -272,7 +272,6 @@ header {
         padding-bottom: 36.35%;
         // border-radius: 4px;
         overflow: hidden;
-        //test
 
         &:hover {
           .img-box img {
@@ -282,15 +281,6 @@ header {
           .img-box .overlay {
             opacity: 1;
           }
-        }
-
-        a {
-          position: absolute;
-          display: inline-block;
-          width: 100%;
-          height: 100%;
-          padding: 20px;
-          box-sizing: border-box;
         }
 
         .img-box {
@@ -323,20 +313,28 @@ header {
       }
 
       .tit {
-        strong,
-        strong div {
-          font-family: 'diatype';
-          font-size: 22px;
-          line-height: 140%;
-          font-weight: 500;
-          color: $default-bl-color;
-          text-align: center;
+        width: 35%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 8px;
+
+        .num {
+          margin-right: 10px;
         }
-        span,
-        span div {
+
+        .split-line {
+          height: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          overflow: hidden;
+        }
+
+        span {
           font-family: 'diatype';
           font-size: 14px;
-          font-weight: 400;
+          font-weight: 600;
           line-height: 140%;
           color: $default-bl-color;
           text-align: center;
