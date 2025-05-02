@@ -73,6 +73,43 @@ function cursorFunc() {
   });
 }
 
+// * =============== mask text ===============v *//
+function maskTextEffect() {
+  const contentWrap = document.getElementById('smooth-wrapper');
+  const elementAmount = document.querySelector('.card-content ul').offsetHeight;
+
+  console.log(contentWrap);
+
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: '.mask-content',
+        start: 'top top',
+        // end: () => `+=${elementAmount} top`,
+        // pin: true,
+        scrub: true,
+        markers: true,
+
+        onUpdate: (self) => {
+          // console.log('progress', self.progress);
+        },
+
+        onEnter: () => {
+          // contentWrap.classList.add('is-stick');
+          console.log('onEnter!');
+        },
+
+        onLeave: () => {
+          // contentWrap.classList.remove('is-stick');
+          console.log('onLeave!');
+        },
+      },
+    })
+
+    .fromTo('.w-left', { x: -100 }, { x: 0 }, 'text')
+    .fromTo('.w-right', { x: 100 }, { x: 0 }, 'text');
+}
+
 // * =============== split text ===============v *//
 function splitTextEffect() {
   document.querySelectorAll('.card').forEach((card) => {
@@ -83,12 +120,15 @@ function splitTextEffect() {
     gsap.set(text.chars, { y: '-5px', opacity: 0, filter: 'blur(15px)' });
 
     card.addEventListener('mouseenter', function () {
+      gsap.killTweensOf(title.chars);
+      gsap.killTweensOf(text.chars);
+
       gsap.to(title.chars, {
         y: '0',
         filter: 'blur(0px)',
         opacity: 1,
         stagger: () => gsap.utils.random(0, 0.2),
-        duration: 0.6,
+        duration: 0.4,
         ease: 'power2.out',
       });
 
@@ -97,81 +137,39 @@ function splitTextEffect() {
         filter: 'blur(0px)',
         opacity: 1,
         stagger: () => gsap.utils.random(0, 0.3),
-        duration: 0.6,
+        duration: 0.4,
         ease: 'power2.out',
       });
     });
 
     card.addEventListener('mouseleave', function () {
+      gsap.killTweensOf(title.chars);
+      gsap.killTweensOf(text.chars);
+
       gsap.to(title.chars, {
         y: '10px',
-        filter: 'blur(10px)',
+        filter: 'blur(5px)',
         opacity: 0,
         stagger: () => gsap.utils.random(0, 0.2),
-        duration: 0.5,
+        duration: 0.4,
         ease: 'power2.in',
-        onComplete: () => gsap.set(title.chars, { y: '-10px', opacity: 0, filter: 'blur(15px)' }), // 원래 상태로 복귀
+        onComplete: () => gsap.set(title.chars, { y: '-10px', opacity: 0, filter: 'blur(5px)' }), // 원래 상태로 복귀
       });
 
       gsap.to(text.chars, {
         y: '10px',
-        filter: 'blur(10px)',
+        filter: 'blur(5px)',
         opacity: 0,
         stagger: () => gsap.utils.random(0, 0.3),
-        duration: 0.5,
+        duration: 0.4,
         ease: 'power2.in',
-        onComplete: () => gsap.set(text.chars, { y: '-5px', opacity: 0, filter: 'blur(15px)' }), // 원래 상태로 복귀
+        onComplete: () => gsap.set(text.chars, { y: '-5px', opacity: 0, filter: 'blur(5px)' }), // 원래 상태로 복귀
       });
     });
   });
 }
 
 // * =============== split nav ===============v *//
-// function splitNavEffect() {
-//   const menuItems = document.querySelectorAll('nav li');
-//   const menuText = document.querySelector('.menu .word');
-
-//   console.log(menuText);
-
-//   menuItems.forEach((item) => {
-//     const splitLines = item.querySelectorAll('.split-line');
-//     if (splitLines.length < 2) return; // 두 개의 요소가 없는 경우 건너뜀
-
-//     const splitText1 = new SplitText(splitLines[0], { type: 'chars' });
-//     const splitText2 = new SplitText(splitLines[1], { type: 'chars' });
-
-//     item.addEventListener('mouseenter', () => {
-//       // cursor.classList.add('cursor_nav');
-//       gsap.to(splitLines[0], {
-//         y: '-100%',
-//         duration: 0.15,
-//         ease: 'power2.out',
-//       });
-//       gsap.to(splitLines[1], {
-//         y: '-100%',
-//         duration: 0.15,
-//         ease: 'power2.out',
-//       });
-//     });
-
-//     item.addEventListener('mouseleave', () => {
-//       // cursor.classList.remove('cursor_nav');
-
-//       gsap.to(splitLines[0], {
-//         y: 0,
-//         duration: 0.15,
-//         ease: 'power2.out',
-//       });
-//       gsap.to(splitLines[1], {
-//         y: 0,
-//         duration: 0.15,
-//         ease: 'power2.out',
-//       });
-//     });
-//   });
-
-// }
-
 function splitNavEffect() {
   const menuItems = document.querySelectorAll('nav li');
   const menuText = document.querySelector('.menu .word');
@@ -186,12 +184,12 @@ function splitNavEffect() {
     menuText.addEventListener('mouseenter', () => {
       gsap.to(splitLines[0], {
         y: '-100%',
-        duration: 0.15,
+        duration: 0.12,
         ease: 'power2.out',
       });
       gsap.to(splitLines[1], {
         y: '-100%',
-        duration: 0.15,
+        duration: 0.12,
         ease: 'power2.out',
       });
     });
@@ -199,12 +197,12 @@ function splitNavEffect() {
     menuText.addEventListener('mouseleave', () => {
       gsap.to(splitLines[0], {
         y: 0,
-        duration: 0.15,
+        duration: 0.12,
         ease: 'power2.out',
       });
       gsap.to(splitLines[1], {
         y: 0,
-        duration: 0.15,
+        duration: 0.12,
         ease: 'power2.out',
       });
     });
@@ -256,10 +254,10 @@ function marqueeTextEffect() {
       delay: 0,
       disableOnInteraction: false,
     },
-    freemode: false,
+    freemode: true,
+    freeModeMomentum: false,
     allowTouchMove: false,
-    disabledOnInteraction: true,
-    loopAdditionalSlides: 1,
+    loopAdditionalSlides: 5,
     // centeredSlides: true,
   });
 }
@@ -272,11 +270,11 @@ function scrollCardsFunc() {
   const tl = gsap.timeline({
     scrollTrigger: {
       // trigger: contentWrap,
-      pin: true,
+      // pin: true,
       scrub: 0.3,
       start: 'top top',
-      pin: '.typo-wrap',
-      end: () => `+=${listItem.length * 300}`, // 리스트 개수에 따라 스크롤 길이 조정
+      // pin: '.typo-wrap',
+      // end: () => `+=${listItem.length * 300}`, // 리스트 개수에 따라 스크롤 길이 조정
       // markers: true,
     },
   });
@@ -318,7 +316,8 @@ function scrollFooter() {
 window.addEventListener('load', function () {
   scrollSmoother();
   cursorFunc();
-  splitTextEffect();
+  maskTextEffect();
+  // splitTextEffect();
   splitNavEffect();
   marqueeTextEffect();
   scrollCardsFunc();
@@ -326,3 +325,4 @@ window.addEventListener('load', function () {
 });
 
 // https://locomotive.ca/en
+// https://www.oharchitecture.com.au/
