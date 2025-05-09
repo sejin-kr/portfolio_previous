@@ -12,6 +12,7 @@ var PATH = {
     ASSETS: {
       FONTS: './workspace/assets/fonts',
       IMAGES: './workspace/assets/images',
+      VIDEO: './workspace/assets/video',
       STYLE: './workspace/assets/css',
       JS: './workspace/assets/js',
       LIB: './workspace/assets/lib',
@@ -24,6 +25,7 @@ var PATH = {
     ASSETS: {
       FONTS: './dist/assets/fonts',
       IMAGES: './dist/assets/images',
+      VIDEO: './dist/assets/video',
       STYLE: './dist/assets/css',
       JS: './dist/assets/js',
       LIB: './dist/assets/lib',
@@ -72,6 +74,16 @@ gulp.task('imagemin', () => {
         PATH.ASSETS.IMAGES + '/*.{gif,jpg,png,svg,pdf,cur,webp}',
       ])
       .pipe(gulp.dest(DEST_PATH.ASSETS.IMAGES));
+
+    resolve();
+  });
+});
+
+gulp.task('video', () => {
+  return new Promise((resolve) => {
+    gulp
+      .src([PATH.ASSETS.VIDEO + '/**/*.{mp4,webm,ogg}', PATH.ASSETS.VIDEO + '/*.{mp4,webm,ogg}'])
+      .pipe(gulp.dest(DEST_PATH.ASSETS.VIDEO));
 
     resolve();
   });
@@ -159,6 +171,7 @@ var allSeries = gulp.series([
   'html',
   'script:concat',
   'imagemin',
+  'video',
   'fonts',
   'library',
   'nodemon:start',
