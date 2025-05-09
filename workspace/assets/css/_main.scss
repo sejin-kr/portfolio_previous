@@ -134,6 +134,7 @@ header {
 .main {
   background-color: $default-bl-color;
 }
+
 .content {
   position: relative;
   // background-color: $default-wh-color;
@@ -151,11 +152,152 @@ header {
     box-sizing: border-box;
   }
 
+  // hero-section
+  .sec-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+
+    .title-box {
+      position: relative;
+      width: 100%;
+      padding: 300px 0 30px;
+      text-align: center;
+      z-index: 1;
+
+      h3 {
+        font-family: 'diatype';
+        font-weight: 400;
+        font-size: 62px;
+        line-height: 150%;
+      }
+      p {
+        font-family: 'diatype';
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 150%;
+        margin-top: 10px;
+      }
+    }
+
+    .video-box {
+      position: absolute;
+      width: 1100px;
+      height: 600px;
+      transform: translateX(-50%);
+      aspect-ratio: 1.7777777777777777 / 1;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      video {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
   // about-section
   .sec-about {
     width: 100%;
     height: 100vh;
     background-color: #fff;
+    border-top: 1px solid #000;
+
+    .title-box {
+      padding-top: 120px;
+
+      h3 {
+        font-family: 'diatype';
+        font-weight: 500;
+        font-size: 60px;
+        line-height: 100%;
+        text-transform: uppercase;
+        // color: $default-bl-color;
+        color: #d9d9d9;
+      }
+      .title-t {
+        display: grid;
+        grid-template-rows: auto;
+        grid-auto-columns: minmax(0, 1fr);
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        grid-column-gap: 15px;
+        grid-row-gap: 15px;
+
+        h3 {
+          grid-column: 4/8;
+        }
+      }
+
+      .title-b {
+        display: grid;
+        grid-template-rows: auto;
+        grid-auto-columns: minmax(0, 1fr);
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        grid-column-gap: 15px;
+        grid-row-gap: 15px;
+        margin-top: 20px;
+        justify-content: center;
+        align-items: center;
+
+        > div {
+          grid-area: 1 / 5 / 2 / 13;
+        }
+      }
+
+      .flex {
+        display: flex;
+        grid-column-gap: 25px;
+        justify-content: flex-start;
+        align-items: flex-end;
+      }
+
+      .img-box {
+        position: relative;
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+        max-width: 100%;
+        width: 270px;
+        height: 180px;
+        overflow: hidden;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .desc-box {
+      display: grid;
+      grid-template-rows: auto;
+      grid-auto-columns: minmax(0, 1fr);
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      grid-column-gap: 15px;
+      grid-row-gap: 15px;
+      margin-top: 30px;
+
+      p {
+        display: flex;
+        font-family: 'diatype';
+        font-size: 18px;
+        line-height: 100%;
+        font-weight: 300;
+        grid-area: 1 / 5 / 2 / 9;
+      }
+      span {
+        font-family: 'diatype';
+        font-size: 18px;
+        line-height: 100%;
+        font-weight: 400;
+        grid-area: 1 / 9 / 1 / 11;
+        margin-left: 55px;
+      }
+    }
   }
 
   // work-section
@@ -246,6 +388,24 @@ header {
       }
     }
 
+    .title-box {
+      display: flex;
+      align-items: flex-end;
+
+      h3,
+      span {
+        font-family: 'diatype';
+        font-size: 60px;
+        line-height: 120%;
+        font-weight: 400;
+      }
+      span {
+        font-size: 24px;
+        line-height: 190%;
+        margin-left: 10px;
+      }
+    }
+
     .card-content {
       width: 100%;
 
@@ -254,6 +414,7 @@ header {
         display: flex;
         flex-direction: column;
         gap: 150px;
+        margin-top: 20px;
       }
 
       li {
@@ -267,7 +428,7 @@ header {
 
       .card {
         position: relative;
-        width: 35%;
+        width: 50%;
         height: 0;
         padding-bottom: 36.35%;
         // border-radius: 4px;
@@ -313,7 +474,7 @@ header {
       }
 
       .tit {
-        width: 35%;
+        width: 50%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -333,11 +494,12 @@ header {
 
         span {
           font-family: 'diatype';
-          font-size: 14px;
-          font-weight: 600;
+          font-size: 15px;
+          font-weight: 500;
           line-height: 140%;
           color: $default-bl-color;
           text-align: center;
+          text-transform: uppercase;
         }
       }
     }
