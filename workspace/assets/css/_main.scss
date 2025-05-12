@@ -25,6 +25,7 @@ header {
     font-family: 'diatype';
     font-size: 20px;
     line-height: 120%;
+    cursor: pointer;
   }
 
   nav {
@@ -358,7 +359,7 @@ header {
         li {
           font-family: 'diatype';
           font-size: 16px;
-          line-height: 100%;
+          line-height: 120%;
           font-weight: 400;
         }
         .list-header,
@@ -377,6 +378,9 @@ header {
         }
         .list-content + .list-content {
           border-top: 1px solid $gray-color;
+        }
+        .list-content ~ .list-header {
+          margin-top: 15px;
         }
         li {
           &:first-child {
@@ -685,13 +689,15 @@ footer {
 
   .logo {
     display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-color: $point-color;
+    font-family: 'diatype';
+    font-size: 20px;
+    line-height: 120%;
+    color: #fff;
   }
 
   p,
-  span {
+  span,
+  button {
     font-family: 'diatype';
     font-size: 16px;
     font-weight: 400;

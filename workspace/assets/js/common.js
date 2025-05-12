@@ -343,6 +343,17 @@ function moveToOffsetTop() {
   });
 }
 
+function backToTop() {
+  const topBtn = document.querySelector('.backToTop');
+
+  topBtn.addEventListener('click', function () {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  });
+}
+
 window.addEventListener('load', function () {
   // scrollSmoother();
   cursorFunc();
@@ -354,6 +365,7 @@ window.addEventListener('load', function () {
   scrollCardsFunc();
   scrollFooter();
   moveToOffsetTop();
+  backToTop();
 });
 
 // https://locomotive.ca/en
