@@ -21,10 +21,12 @@ header {
     box-sizing: border-box;
   }
 
-  h1 {
+  h1,
+  h1 > a {
     font-family: 'diatype';
     font-size: 20px;
     line-height: 120%;
+    color: $default-bl-color;
     cursor: pointer;
   }
 
