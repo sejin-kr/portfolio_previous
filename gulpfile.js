@@ -82,7 +82,10 @@ gulp.task('imagemin', () => {
 gulp.task('video', () => {
   return new Promise((resolve) => {
     gulp
-      .src([PATH.ASSETS.VIDEO + '/**/*.{mp4,webm,ogg}', PATH.ASSETS.VIDEO + '/*.{mp4,webm,ogg}'])
+      .src([
+        PATH.ASSETS.VIDEO + '/**/*.{mp4,mov,webm,ogg}',
+        PATH.ASSETS.VIDEO + '/*.{mp4,mov,webm,ogg}',
+      ])
       .pipe(gulp.dest(DEST_PATH.ASSETS.VIDEO));
 
     resolve();

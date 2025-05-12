@@ -75,8 +75,11 @@ function cursorFunc() {
 
 // * =============== check number of projects ===============v *//
 function checkProject() {
+  const main = document.querySelector('.main');
   const prjItems = document.querySelectorAll('.project-list li');
   const countNum = document.querySelector('.sec-work .title-box span');
+
+  if (!main) return;
 
   const count = prjItems.length;
   const formattedCount = count < 10 ? `0${count}` : `${count}`;
@@ -84,20 +87,53 @@ function checkProject() {
   countNum.textContent = `(${formattedCount}+)`;
 }
 
+/**
+ * 콘텐츠를 일정한 간격으로 순차적으로 나타내는 애니메이션을 적용
+ */
+const contentStaggerAnime = () => {
+  const staggers = document.querySelectorAll('.stagger');
+
+  if (staggers) {
+    staggers.forEach((stagger) => {
+      const staggerItems = stagger.querySelectorAll('.stagger-item');
+      const setY = window.innerHeight > 768 ? 20 : 10;
+
+      gsap.set(staggerItems, { y: setY, opacity: 0 });
+
+      gsap.to(staggerItems, {
+        y: 0,
+        stagger: 0.5, // long이 true일 경우 간격을 더 길게 설정
+        duration: 0.8,
+        opacity: 1,
+        ease: 'power2.inOut',
+        scrollTrigger: {
+          trigger: stagger,
+          start: 'top 30%',
+          // markers: true,
+        },
+      });
+    });
+  }
+};
+
 // * =============== mask text ===============v *//
 function maskTextEffect() {
-  const contentWrap = document.getElementById('smooth-wrapper');
-  const elementAmount = document.querySelector('.card-content ul').offsetHeight;
+  const main = document.querySelector('.main');
+  // const contentWrap = document.getElementById('smooth-wrapper');
+  // const elementAmount = document.querySelector('.card-content ul').offsetHeight;
+
+  if (!main) return;
 
   gsap
     .timeline({
       scrollTrigger: {
-        trigger: '.mask-content',
+        trigger: '.card-content',
         start: 'top top',
+        end: '20% top',
         // end: () => `+=${elementAmount} top`,
         // pin: true,
         scrub: true,
-        markers: true,
+        // markers: true,
 
         onUpdate: (self) => {
           // console.log('progress', self.progress);
@@ -310,7 +346,7 @@ function scrollFooter() {
     },
   });
 
-  tl.to('.main > .content', {
+  tl.to('.content-wrap > .content', {
     scale: 0.97,
     borderBottomLeftRadius: '20px',
     borderBottomRightRadius: '20px',
@@ -343,6 +379,7 @@ function moveToOffsetTop() {
   });
 }
 
+// * =============== backToTop ===============v *//
 function backToTop() {
   const topBtn = document.querySelector('.backToTop');
 
@@ -358,6 +395,7 @@ window.addEventListener('load', function () {
   // scrollSmoother();
   cursorFunc();
   checkProject();
+  contentStaggerAnime();
   maskTextEffect();
   // splitTextEffect();
   splitNavEffect();

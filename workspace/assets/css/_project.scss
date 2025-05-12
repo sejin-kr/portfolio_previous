@@ -1,0 +1,223 @@
+.project {
+  .inner {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+
+  .title-wrap {
+    width: 100%;
+    padding: 20vh 0 12vh 0;
+
+    .row {
+      display: grid;
+      grid-template-rows: auto;
+      grid-auto-columns: minmax(0, 1fr);
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      grid-column-gap: 15px;
+      grid-row-gap: 15px;
+    }
+    .detail {
+      display: flex;
+      flex-direction: column;
+      margin-top: 30px;
+    }
+
+    p,
+    span,
+    li {
+      font-family: 'diatype';
+      font-size: 18px;
+      line-height: 120%;
+      font-weight: 400;
+    }
+    strong {
+      display: block;
+      font-family: 'diatype';
+      font-size: 18px;
+      line-height: 120%;
+      font-weight: 500;
+      margin-bottom: 5px;
+      opacity: 0.5;
+    }
+
+    .prj-name-box {
+      display: flex;
+      justify-self: center;
+      align-items: center;
+    }
+    .prj-name {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 50px;
+      gap: 60px;
+
+      .tit {
+        display: flex;
+        width: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: width 0.5s ease-in 0s, opacity 0.8s ease-in 0.4s;
+      }
+
+      span {
+        font-family: 'diatype';
+        font-size: 12vh;
+        line-height: 120%;
+        color: $default-bl-color;
+      }
+
+      &.is-show {
+        .tit {
+          width: 100%;
+          opacity: 1;
+        }
+      }
+    }
+
+    .prj-desc {
+      grid-area: 1 / 1 / 1 / 6;
+
+      span {
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+    }
+    .prj-label {
+      grid-area: 1 / 7 / 1 / 9;
+    }
+    .prj-skill {
+      grid-area: 1 / 10 / 1 / 12;
+      text-align: right;
+    }
+    .prj-people {
+      grid-area: 1 / 1 / 1 / 6;
+    }
+    .prj-role {
+      grid-area: 1 / 7 / 1 / 12;
+    }
+  }
+
+  .content-wrap {
+    .video-box {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      clip-path: inset(1px, 1px);
+      -webkit-clip-path: inset(1px 1px);
+      outline: none;
+      border: 0;
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+      -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .prj-box {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 15px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      div {
+        background-color: #000;
+      }
+    }
+
+    .row-01 {
+      div {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .row-02 {
+      display: flex;
+      justify-content: space-between;
+
+      div {
+        width: calc(50% - 5px);
+      }
+    }
+
+    .row-03 {
+      display: flex;
+      justify-content: space-between;
+      div {
+        width: calc(33.333% - 10px);
+        height: 100%;
+      }
+    }
+  }
+
+  // * next button
+  .next-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 400px;
+      padding: 20px 30px;
+      font-family: 'diatype';
+      font-size: 18px;
+      line-height: 120%;
+      font-weight: 500;
+      color: $default-bl-color;
+      border: 1.5px solid $default-bl-color;
+      border-radius: 30px;
+      text-transform: uppercase;
+
+      span {
+        position: relative;
+        padding-right: 0;
+        transition: all 0.4s;
+
+        &::after {
+          content: '';
+          position: absolute;
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          background: url('../images/ico/ico-arrow-diagonal.svg') no-repeat center center;
+          top: 50%;
+          right: -8px;
+          transform: translateY(-50%);
+          opacity: 0;
+        }
+      }
+
+      &:hover {
+        span {
+          opacity: 1;
+          padding-right: 18px;
+
+          &::after {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
