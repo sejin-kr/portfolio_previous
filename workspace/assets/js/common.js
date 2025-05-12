@@ -314,7 +314,7 @@ function scrollFooter() {
 }
 
 window.addEventListener('load', function () {
-  scrollSmoother();
+  // scrollSmoother();
   cursorFunc();
   maskTextEffect();
   // splitTextEffect();
