@@ -21,10 +21,10 @@ header {
     box-sizing: border-box;
   }
 
-  .logo {
-    width: 20px;
-    height: 20px;
-    background-color: $default-bl-color;
+  h1 {
+    font-family: 'diatype';
+    font-size: 20px;
+    line-height: 120%;
   }
 
   nav {
