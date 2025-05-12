@@ -73,12 +73,21 @@ function cursorFunc() {
   });
 }
 
+// * =============== check number of projects ===============v *//
+function checkProject() {
+  const prjItems = document.querySelectorAll('.project-list li');
+  const countNum = document.querySelector('.sec-work .title-box span');
+
+  const count = prjItems.length;
+  const formattedCount = count < 10 ? `0${count}` : `${count}`;
+
+  countNum.textContent = `(${formattedCount}+)`;
+}
+
 // * =============== mask text ===============v *//
 function maskTextEffect() {
   const contentWrap = document.getElementById('smooth-wrapper');
   const elementAmount = document.querySelector('.card-content ul').offsetHeight;
-
-  console.log(contentWrap);
 
   gsap
     .timeline({
@@ -317,8 +326,6 @@ function scrollFooter() {
 function moveToOffsetTop() {
   const menu = document.querySelectorAll('header nav li');
 
-  console.log(menu);
-
   menu.forEach((item) => {
     item.addEventListener('click', function (e) {
       const link = this.querySelector('a');
@@ -339,6 +346,7 @@ function moveToOffsetTop() {
 window.addEventListener('load', function () {
   // scrollSmoother();
   cursorFunc();
+  checkProject();
   maskTextEffect();
   // splitTextEffect();
   splitNavEffect();
