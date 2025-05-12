@@ -313,6 +313,29 @@ function scrollFooter() {
   );
 }
 
+// * =============== offsetTop ===============v *//
+function moveToOffsetTop() {
+  const menu = document.querySelectorAll('header nav li');
+
+  console.log(menu);
+
+  menu.forEach((item) => {
+    item.addEventListener('click', function (e) {
+      const link = this.querySelector('a');
+      const targetId = link.getAttribute('href');
+
+      if (!targetId.startsWith('#')) return;
+
+      e.preventDefault();
+
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+}
+
 window.addEventListener('load', function () {
   // scrollSmoother();
   cursorFunc();
@@ -322,6 +345,7 @@ window.addEventListener('load', function () {
   marqueeTextEffect();
   scrollCardsFunc();
   scrollFooter();
+  moveToOffsetTop();
 });
 
 // https://locomotive.ca/en
