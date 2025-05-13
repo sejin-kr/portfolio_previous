@@ -12,7 +12,20 @@
 
     <title>Sejin</title>
     <!-- css -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/dat.gui@0.7.9/build/dat.gui.min.css"
+      rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+
+    <!-- importmap -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.176.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.176.0/examples/jsm/"
+        }
+      }
+    </script>
   </head>
   <body>
     <div class="wrap" id="smooth-wrapper">
@@ -23,15 +36,19 @@
         <!-- content -->
         <div class="content">
           <section class="sec-hero">
+            <!-- canvas -->
+            <canvas id="webgl-canvas"></canvas>
+
+            <!-- title -->
             <div class="title-box">
               <h3>Hello, World!</h3>
               <p>hi, hello, world!</p>
             </div>
-            <div class="video-box">
+            <!-- <div class="video-box">
               <video loop="" muted playsinline="" autoplay title="rolling ball in hero section">
                 <source src="../assets/video/ball_video.mp4" type="video/mp4" />
               </video>
-            </div>
+            </div> -->
           </section>
           <section class="sec-about stagger" id="about">
             <div class="inner">
@@ -750,6 +767,9 @@
     <script src="../assets/lib/ScrollTrigger.min.js"></script>
     <script src="../assets/lib/ScrollSmoother.min.js"></script>
     <script src="../assets/lib/SplitText.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dat.gui@0.7.9/build/dat.gui.min.js"></script>
+
     <script type="text/javascript" src="../assets/js/common.js"></script>
+    <script type="module" src="../assets/js/canvas.js"></script>
   </body>
 </html>
