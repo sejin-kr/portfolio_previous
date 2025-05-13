@@ -1,3 +1,7 @@
+.dg.ac {
+  z-index: 111 !important;
+  display: none;
+}
 .dg li.title {
   font-size: 15px;
 }
@@ -15,9 +19,6 @@ header {
   z-index: 5;
   opacity: 0;
   transition: all 0.8s;
-  // backdrop filter
-  // background: transparent;
-  // backdrop-filter: blur(10px);
 
   &.new-load {
     top: 0;
@@ -47,7 +48,6 @@ header {
   nav {
     display: inline-block;
     position: absolute;
-    // top: 50%;
     top: -100%;
     left: 50%;
     padding: 5px 20px;
@@ -433,6 +433,7 @@ header {
         .title {
           width: 30%;
           text-transform: uppercase;
+          padding: 10px 0;
         }
 
         .list {
@@ -675,6 +676,255 @@ header {
         font-weight: 400;
         color: $default-bl-color;
         line-height: 150%;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    // about-section
+    .sec-about {
+      .title-box {
+        padding-top: 120px;
+
+        h3 {
+          font-size: 40px;
+        }
+
+        .img-box {
+          width: 200px;
+          height: 130px;
+        }
+      }
+
+      .desc-box {
+        margin-top: 20px;
+
+        p {
+          font-size: 14px;
+        }
+        span {
+          font-size: 12px;
+        }
+      }
+
+      .content-box {
+        padding-top: 200px;
+
+        .content-t {
+          strong,
+          p {
+            font-size: 14px;
+          }
+        }
+
+        .content-b {
+          > div + div {
+            margin-top: 25px;
+          }
+
+          .title,
+          li {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    // work-section
+    .sec-work {
+      .title-box {
+        h3 {
+          font-size: 40px;
+        }
+        span {
+          font-size: 20px;
+        }
+      }
+
+      .order-box {
+        height: 12vh;
+      }
+
+      .title-content {
+        strong {
+          font-size: 12vh;
+        }
+      }
+
+      .card-content {
+        ul {
+          gap: 120px;
+        }
+
+        .card {
+          position: relative;
+          width: 100%;
+          height: 0;
+          padding-bottom: 62%;
+          border-radius: 10px;
+          overflow: hidden;
+        }
+
+        .tit {
+          margin-top: 8px;
+
+          .num {
+            margin-right: 10px;
+          }
+
+          span {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    // about-section
+    .sec-about {
+      .title-box {
+        padding-top: 80px;
+
+        h3 {
+          font-size: 30px;
+        }
+
+        .title-t {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .title-b {
+          display: flex;
+          margin-top: 15px;
+        }
+
+        .flex {
+          gap: 15px;
+        }
+
+        .img-box {
+          width: 200px;
+          height: 130px;
+        }
+      }
+
+      .desc-box {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        max-width: 300px;
+        margin: 20px auto 0 auto;
+        margin-top: 20px;
+      }
+
+      .content-box {
+        padding-top: 100px;
+        padding-bottom: 80px;
+
+        .content-t {
+          flex-direction: column-reverse;
+          gap: 15px;
+
+          .info-box {
+            width: 100%;
+          }
+          .img-box {
+            width: 100%;
+          }
+        }
+
+        .content-b {
+          > div {
+            flex-direction: column;
+          }
+          > div + div {
+            margin-top: 25px;
+          }
+
+          .title {
+            width: 100%;
+            font-size: 16px;
+          }
+
+          .list {
+            width: 100%;
+          }
+
+          .title,
+          li {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    // work-section
+    .sec-work {
+      .content-wrap {
+        flex-direction: column;
+      }
+
+      .title-box {
+        h3 {
+          font-size: 40px;
+        }
+        span {
+          font-size: 20px;
+        }
+      }
+
+      .order-box {
+        display: none;
+      }
+
+      .title-content {
+        width: 100%;
+        position: static;
+        padding: 10vh 0 4vh 0;
+      }
+
+      .card-content {
+        width: 100%;
+        padding: 0;
+
+        ul {
+          gap: 40px;
+        }
+
+        .card {
+          position: relative;
+          width: 100%;
+          height: 0;
+          padding-bottom: 62%;
+          border-radius: 10px;
+          overflow: hidden;
+        }
+
+        .tit {
+          margin-top: 4px;
+
+          .num {
+            margin-right: 8px;
+          }
+
+          span {
+            font-size: 12px;
+          }
+        }
+      }
+
+      .marquee-text {
+        height: 12vh;
+
+        .svg {
+          width: 20px;
+          height: 20px;
+          margin-right: 16px;
+        }
+        p {
+          font-size: 20px;
+        }
       }
     }
   }

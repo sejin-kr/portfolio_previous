@@ -153,7 +153,7 @@ function updateProjectOrder() {
       trigger: card,
       start: 'top center',
       end: 'bottom center',
-      markers: true,
+      // markers: true,
       onEnter: () => animateTo(index),
       onEnterBack: () => animateTo(index),
     });
