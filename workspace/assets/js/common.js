@@ -11,12 +11,13 @@ function scrollSmoother() {
 
 // * =============== cursor ===============v *//
 function cursorFunc() {
+  const main = document.querySelector('.main');
   const cursor = document.getElementById('cursor');
   const cards = document.querySelectorAll('.card');
   const footer = document.querySelector('footer');
   const footerText = document.querySelector('footer .f-txt');
 
-  if (!cursor) return;
+  if (!main) return;
 
   // 실제 마우스 좌표
   let mouseX = 0;
@@ -71,6 +72,24 @@ function cursorFunc() {
   footerText.addEventListener('mouseleave', () => {
     cursor.classList.remove('cursor_sendEmail');
   });
+}
+
+// * =============== hide Header ===============v *//
+function headerVisibility() {
+  const main = document.querySelector('.main');
+  const nav = document.querySelector('header nav');
+  const header = document.querySelector('header');
+
+  if (!nav) return;
+
+  if (main) {
+    header.classList.add('new-load');
+    nav.classList.add('is-visible');
+    nav.classList.remove('is-hidden');
+  } else {
+    header.classList.add('new-load');
+    nav.classList.add('is-hidden');
+  }
 }
 
 // * =============== check number of projects ===============v *//
@@ -335,6 +354,10 @@ function scrollCardsFunc() {
 
 // * =============== scrollTrigger - footer ===============v *//
 function scrollFooter() {
+  const main = document.querySelector('.main');
+
+  if (!main) return;
+
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: 'footer',
@@ -346,7 +369,7 @@ function scrollFooter() {
     },
   });
 
-  tl.to('.content-wrap > .content', {
+  tl.to('.main > .content', {
     scale: 0.97,
     borderBottomLeftRadius: '20px',
     borderBottomRightRadius: '20px',
@@ -381,7 +404,10 @@ function moveToOffsetTop() {
 
 // * =============== backToTop ===============v *//
 function backToTop() {
+  const main = document.querySelector('.main');
   const topBtn = document.querySelector('.backToTop');
+
+  if (!main) return;
 
   topBtn.addEventListener('click', function () {
     window.scrollTo({
@@ -404,6 +430,10 @@ window.addEventListener('load', function () {
   scrollFooter();
   moveToOffsetTop();
   backToTop();
+});
+
+window.addEventListener('DOMContentLoaded', function () {
+  headerVisibility();
 });
 
 // https://locomotive.ca/en

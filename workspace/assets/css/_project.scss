@@ -30,6 +30,7 @@
       font-size: 18px;
       line-height: 120%;
       font-weight: 400;
+      word-break: keep-all;
     }
     strong {
       display: block;
@@ -38,6 +39,7 @@
       line-height: 120%;
       font-weight: 500;
       margin-bottom: 5px;
+      word-break: keep-all;
       opacity: 0.5;
     }
 
@@ -160,23 +162,30 @@
     .row-02 {
       display: flex;
       justify-content: space-between;
+      border-radius: 0;
 
       div {
         width: calc(50% - 5px);
+        height: 100%;
+        border-radius: 20px 20px 0 0;
+        overflow: hidden;
       }
     }
 
     .row-03 {
       display: flex;
       justify-content: space-between;
+      border-radius: 0;
+
       div {
         width: calc(33.333% - 10px);
         height: 100%;
+        border-radius: 20px 20px 0 0;
+        overflow: hidden;
       }
     }
   }
 
-  // * next button
   .next-btn {
     display: flex;
     justify-content: center;
@@ -225,6 +234,166 @@
 
           &::after {
             opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .title-wrap {
+      p,
+      span,
+      li {
+        font-size: 14px;
+      }
+      strong {
+        font-size: 14px;
+      }
+
+      .prj-name {
+        margin-bottom: 30px;
+        gap: 40px;
+
+        span {
+          font-size: 10vh;
+        }
+      }
+
+      .prj-desc {
+        span {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .next-btn {
+      padding: 80px 0;
+
+      a {
+        max-width: 300px;
+        padding: 15px 20px;
+        font-size: 14px;
+
+        span {
+          position: relative;
+          padding-right: 0;
+          transition: all 0.4s;
+
+          &::after {
+            content: '';
+            width: 14px;
+            height: 14px;
+            right: -7px;
+          }
+        }
+
+        &:hover {
+          span {
+            padding-right: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .title-wrap {
+      padding: 16vh 0 8vh 0;
+
+      .row {
+        display: flex;
+        flex-direction: column;
+        grid-column-gap: 0;
+        grid-row-gap: 0;
+        gap: 10px;
+      }
+
+      .detail {
+        margin-top: 15px;
+      }
+
+      p,
+      span,
+      li {
+        font-size: 14px;
+      }
+      strong {
+        font-size: 14px;
+      }
+
+      .prj-name {
+        gap: 30px;
+
+        span {
+          font-size: 8vh;
+        }
+      }
+
+      .prj-desc {
+        span {
+          font-size: 14px;
+        }
+      }
+      .prj-skill {
+        text-align: left;
+
+        li {
+          display: inline-block;
+
+          &::after {
+            content: ',';
+          }
+        }
+        li:last-child::after {
+          content: '';
+        }
+        li + li {
+          margin-left: 5px;
+        }
+      }
+    }
+
+    .content-wrap {
+      .prj-box {
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+
+      .row-02 {
+        div {
+          border-radius: 10px 10px 0 0;
+        }
+      }
+
+      .row-03 {
+        div {
+          border-radius: 10px 10px 0 0;
+        }
+      }
+    }
+
+    .next-btn {
+      padding: 60px 0 40px 0;
+
+      a {
+        max-width: none;
+        width: 100%;
+        padding: 15px 20px;
+        font-size: 14px;
+
+        span {
+          position: relative;
+          padding-right: 0;
+
+          &::after {
+            content: none;
+          }
+        }
+
+        &:hover {
+          span {
+            padding-right: 0;
           }
         }
       }
