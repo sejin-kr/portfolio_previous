@@ -135,43 +135,57 @@ const contentStaggerAnime = () => {
   }
 };
 
-// * =============== mask text ===============v *//
-function maskTextEffect() {
-  const main = document.querySelector('.main');
-  // const contentWrap = document.getElementById('smooth-wrapper');
-  // const elementAmount = document.querySelector('.card-content ul').offsetHeight;
+// * =============== Update Project order ===============v *//
+// Animates and updates the project number on scroll. //
+function updateProjectOrder() {
+  const cards = document.querySelectorAll('.project-list li');
+  const orderBox = document.querySelector('.order-box');
+  const strongs = orderBox.querySelectorAll('.order-box strong');
 
-  if (!main) return;
+  let currentIndex = 0;
+  let isAnimating = false;
 
-  gsap
-    .timeline({
-      scrollTrigger: {
-        trigger: '.card-content',
-        start: 'top top',
-        end: '20% top',
-        // end: () => `+=${elementAmount} top`,
-        // pin: true,
-        scrub: true,
-        // markers: true,
+  gsap.set(strongs[0], { yPercent: 0, opacity: 1 });
+  gsap.set(strongs[1], { yPercent: 100, opacity: 0 });
 
-        onUpdate: (self) => {
-          // console.log('progress', self.progress);
-        },
+  cards.forEach((card, index) => {
+    ScrollTrigger.create({
+      trigger: card,
+      start: 'top center',
+      end: 'bottom center',
+      markers: true,
+      onEnter: () => animateTo(index),
+      onEnterBack: () => animateTo(index),
+    });
+  });
 
-        onEnter: () => {
-          // contentWrap.classList.add('is-stick');
-          console.log('onEnter!');
-        },
+  function animateTo(targetIndex) {
+    if (isAnimating || targetIndex === currentIndex) return;
+    isAnimating = true;
 
-        onLeave: () => {
-          // contentWrap.classList.remove('is-stick');
-          console.log('onLeave!');
-        },
+    const currentEl = strongs[currentIndex % 2];
+    const nextEl = strongs[(currentIndex + 1) % 2];
+
+    const newNum = String(targetIndex + 1).padStart(2, '0') + '.';
+    nextEl.textContent = newNum;
+
+    // 위치 초기화: 아래쪽에 배치
+    gsap.set(nextEl, { yPercent: 100, opacity: 1 });
+
+    // 애니메이션: 현재 → 위로, 다음 → 올라옴
+    const tl = gsap.timeline({
+      onComplete: () => {
+        currentIndex = targetIndex;
+        isAnimating = false;
       },
-    })
+    });
 
-    .fromTo('.w-left', { x: -100 }, { x: 0 }, 'text')
-    .fromTo('.w-right', { x: 100 }, { x: 0 }, 'text');
+    tl.to(currentEl, { yPercent: -100, duration: 0.2, ease: 'power2.in' }, 0).to(
+      nextEl,
+      { yPercent: 0, duration: 0.2, ease: 'power2.in' },
+      0
+    );
+  }
 }
 
 // * =============== split text ===============v *//
@@ -422,8 +436,8 @@ window.addEventListener('load', function () {
   cursorFunc();
   checkProject();
   contentStaggerAnime();
-  maskTextEffect();
   // splitTextEffect();
+  updateProjectOrder();
   splitNavEffect();
   marqueeTextEffect();
   scrollCardsFunc();

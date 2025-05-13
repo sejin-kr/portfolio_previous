@@ -485,92 +485,10 @@ header {
   .sec-work {
     display: flex;
 
-    .typo-wrap {
+    .content-wrap {
       display: flex;
-      width: 100%;
-      height: 100vh;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      flex: 1 0 0;
-      // position: sticky;
-      // top: 0;
-    }
-
-    .spacer {
-      width: 100%;
-      height: auto;
-      flex: 1 0 0;
-    }
-
-    .typo-content {
-      width: 100%;
-      display: flex;
-      position: relative;
-      justify-content: center;
-      aspect-ratio: 3.6666666666666665 / 1;
-      overflow: hidden;
-
-      .text {
-        position: relative;
-        width: 358px;
-        aspect-ratio: 1.1282051282051282 / 1;
-        top: 0;
-        will-change: transform;
-
-        //   &[name='W'] {
-        //     left: 0;
-        //   }
-        //   &[name='O'] {
-        //     left: 77%;
-        //   }
-        //   &[name='R'] {
-        //     left: -26%;
-        //   }
-        //   &[name='K'] {
-        //     right: 0;
-        //   }
-      }
-
-      .text-container {
-        position: absolute;
-        width: 358px;
-        aspect-ratio: 3.6666666666666665 / 1;
-      }
-    }
-
-    .mask-content {
-      width: 100%;
-      height: 100vh;
-      // sticky effect
-      position: sticky;
-      top: 0;
-      // .sticky effect
-
-      .text {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-      }
-
-      .word {
-        width: auto;
-        font-family: 'diatype';
-        font-weight: 400;
-        font-size: 10vh;
-        line-height: 150%;
-        color: $gray-color;
-
-        &:first-child {
-          text-align: right;
-        }
-        &:last-child {
-          text-align: left;
-        }
-      }
+      justify-content: space-between;
+      align-items: flex-start;
     }
 
     .title-box {
@@ -593,8 +511,42 @@ header {
       }
     }
 
+    .order-box {
+      position: relative;
+      height: 10vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .title-content {
+      width: 35%;
+      position: sticky;
+      top: 0;
+      left: 0;
+      padding: 10vh 0;
+
+      strong {
+        display: inline-block;
+        font-family: 'diatype';
+        font-size: 10vh;
+        line-height: 100%;
+        font-weight: 400;
+
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        width: 100%;
+        text-align: left;
+        transform: translateY(0%);
+        opacity: 1;
+      }
+    }
+
     .card-content {
-      width: 100%;
+      width: 65%;
+      padding: 10vh 0;
 
       ul {
         position: relative;
@@ -615,9 +567,9 @@ header {
 
       .card {
         position: relative;
-        width: 50%;
+        width: 100%;
         height: 0;
-        padding-bottom: 36.35%;
+        padding-bottom: 62%;
         border-radius: 10px;
         overflow: hidden;
 
@@ -661,7 +613,7 @@ header {
       }
 
       .tit {
-        width: 50%;
+        width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
