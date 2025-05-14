@@ -1,4 +1,4 @@
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 // * =============== scrollSmoother ===============v *//
 function scrollSmoother() {
