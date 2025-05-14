@@ -12,6 +12,7 @@ var PATH = {
     ASSETS: {
       FONTS: './workspace/assets/fonts',
       IMAGES: './workspace/assets/images',
+      MODELS: './workspace/assets/models',
       VIDEO: './workspace/assets/video',
       STYLE: './workspace/assets/css',
       JS: './workspace/assets/js',
@@ -25,6 +26,7 @@ var PATH = {
     ASSETS: {
       FONTS: './dist/assets/fonts',
       IMAGES: './dist/assets/images',
+      MODELS: './dist/assets/models',
       VIDEO: './dist/assets/video',
       STYLE: './dist/assets/css',
       JS: './dist/assets/js',
@@ -70,11 +72,20 @@ gulp.task('imagemin', () => {
   return new Promise((resolve) => {
     gulp
       .src([
-        PATH.ASSETS.IMAGES + '/**/*.{gif,jpg,png,svg,pdf,cur,webp}',
-        PATH.ASSETS.IMAGES + '/*.{gif,jpg,png,svg,pdf,cur,webp}',
+        PATH.ASSETS.IMAGES + '/**/*.{gif,jpg,png,svg,pdf,cur,webp,glb}',
+        PATH.ASSETS.IMAGES + '/*.{gif,jpg,png,svg,pdf,cur,webp,glb}',
       ])
       .pipe(gulp.dest(DEST_PATH.ASSETS.IMAGES));
 
+    resolve();
+  });
+});
+
+gulp.task('models', () => {
+  return new Promise((resolve) => {
+    gulp
+      .src([PATH.ASSETS.MODELS + '/**/*.{glb}', PATH.ASSETS.MODELS + '/*.{glb}'])
+      .pipe(gulp.dest(DEST_PATH.ASSETS.MODELS));
     resolve();
   });
 });
@@ -151,7 +162,11 @@ gulp.task('watch', () => {
       [PATH.ASSETS.JS + '/**/*.js', PATH.ASSETS.JS + '/*.js'],
       gulp.series(['script:concat'])
     );
-    gulp.watch(PATH.ASSETS.IMAGES + '/**/*.{gif,jpg,png,svg,cur,webp}', gulp.series(['imagemin']));
+    gulp.watch(
+      PATH.ASSETS.IMAGES + '/**/*.{gif,jpg,png,svg,cur,webp,glb}',
+      gulp.series(['imagemin'])
+    );
+    gulp.watch(PATH.ASSETS.MODELS + '/**/*.{glb}', gulp.series(['models']));
     resolve();
   });
 });
@@ -174,6 +189,7 @@ var allSeries = gulp.series([
   'html',
   'script:concat',
   'imagemin',
+  'models',
   'video',
   'fonts',
   'library',
