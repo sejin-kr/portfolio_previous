@@ -171,10 +171,21 @@ gulp.task('watch', () => {
   });
 });
 
+// gulp.task('browserSync', () => {
+//   return new Promise((resolve) => {
+//     browserSync.init(null, {
+//       proxy: 'http://localhost:8000',
+//       port: 8080,
+//     });
+//     resolve();
+//   });
+// });
 gulp.task('browserSync', () => {
   return new Promise((resolve) => {
-    browserSync.init(null, {
-      proxy: 'http://localhost:8000',
+    browserSync.init({
+      server: {
+        baseDir: './dist',
+      },
       port: 8080,
     });
     resolve();
