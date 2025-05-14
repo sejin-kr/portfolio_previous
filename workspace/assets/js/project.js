@@ -27,7 +27,7 @@ const contentStaggerTopAnime = () => {
         scrollTrigger: {
           trigger: stagger,
           start: 'top 30%',
-          markers: true,
+          // markers: true,
         },
       });
     });

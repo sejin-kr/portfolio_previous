@@ -17,8 +17,6 @@ function cursorFunc() {
   const footer = document.querySelector('footer');
   const footerText = document.querySelector('footer .f-txt');
 
-  if (!main) return;
-
   // 실제 마우스 좌표
   let mouseX = 0;
   let mouseY = 0;
@@ -45,6 +43,8 @@ function cursorFunc() {
   }
 
   animateCursor();
+
+  if (!main) return;
 
   // ✨ 카드에 호버시 cursor_preview 클래스 추가
   cards.forEach((item) => {
@@ -138,12 +138,15 @@ const contentStaggerAnime = () => {
 // * =============== Update Project order ===============v *//
 // Animates and updates the project number on scroll. //
 function updateProjectOrder() {
+  const main = document.querySelector('.main');
   const cards = document.querySelectorAll('.project-list li');
   const orderBox = document.querySelector('.order-box');
   const strongs = orderBox.querySelectorAll('.order-box strong');
 
   let currentIndex = 0;
   let isAnimating = false;
+
+  if (!main) return;
 
   gsap.set(strongs[0], { yPercent: 0, opacity: 1 });
   gsap.set(strongs[1], { yPercent: 100, opacity: 0 });
