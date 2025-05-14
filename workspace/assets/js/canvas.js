@@ -318,7 +318,7 @@
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'; // ✅ glb 로더 추가
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'; // glb loader
 
 // 기존 전역 변수 유지
 let gui;
@@ -360,8 +360,9 @@ function init() {
 
   // ✅ GLB 모델 로딩
   const loader = new GLTFLoader();
+
   loader.load(
-    '/workspace/assets/models/heart_shaded.glb',
+    '/heart_shaded.glb',
 
     function (gltf) {
       model = gltf.scene;
@@ -398,7 +399,7 @@ function init() {
   dirFolder.open();
 
   document.addEventListener('mousemove', onMouseMove, false);
-  window.addEventListener('resize', onWindowResize, false);
+  // window.addEventListener('resize', onWindowResize, false);
 }
 
 function onMouseMove(event) {

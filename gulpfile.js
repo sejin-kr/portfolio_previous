@@ -72,8 +72,8 @@ gulp.task('imagemin', () => {
   return new Promise((resolve) => {
     gulp
       .src([
-        PATH.ASSETS.IMAGES + '/**/*.{gif,jpg,png,svg,pdf,cur,webp,glb}',
-        PATH.ASSETS.IMAGES + '/*.{gif,jpg,png,svg,pdf,cur,webp,glb}',
+        PATH.ASSETS.IMAGES + '/**/*.{gif,jpg,png,svg,pdf,cur,webp}',
+        PATH.ASSETS.IMAGES + '/*.{gif,jpg,png,svg,pdf,cur,webp}',
       ])
       .pipe(gulp.dest(DEST_PATH.ASSETS.IMAGES));
 
@@ -171,21 +171,10 @@ gulp.task('watch', () => {
   });
 });
 
-// gulp.task('browserSync', () => {
-//   return new Promise((resolve) => {
-//     browserSync.init(null, {
-//       proxy: 'http://localhost:8000',
-//       port: 8080,
-//     });
-//     resolve();
-//   });
-// });
 gulp.task('browserSync', () => {
   return new Promise((resolve) => {
-    browserSync.init({
-      server: {
-        baseDir: './dist',
-      },
+    browserSync.init(null, {
+      proxy: 'http://localhost:8000',
       port: 8080,
     });
     resolve();
@@ -193,7 +182,6 @@ gulp.task('browserSync', () => {
 });
 
 /*시리즈 정리*/
-
 var allSeries = gulp.series([
   'clean',
   'scss:compile',

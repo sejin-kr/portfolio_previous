@@ -219,7 +219,9 @@
           display: inline-block;
           width: 16px;
           height: 16px;
-          background: url('../images/ico/ico-arrow-diagonal.svg') no-repeat center center;
+          // background: url('../images/ico/ico-arrow-diagonal.svg') no-repeat center center;
+          background: url('/workspace/assets/images/ico/ico-arrow-diagonal.svg') no-repeat center
+            center;
           top: 50%;
           right: -8px;
           transform: translateY(-50%);

@@ -1,7 +1,7 @@
 /* Swiper 9.1.1 */
 @font-face {
   font-family: swiper-icons;
-  src: url("data:application/font-woff; charset=utf-8; base64, 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");
+  src: url('data:application/font-woff; charset=utf-8; base64, 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');
   font-weight: 400;
   font-style: normal;
 }
@@ -158,7 +158,7 @@ swiper-slide {
 }
 
 .swiper-centered > .swiper-wrapper::before {
-  content: "";
+  content: '';
   flex-shrink: 0;
   order: 9999;
 }
@@ -232,7 +232,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader {
 }
 
 .swiper-virtual.swiper-css-mode .swiper-wrapper::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 0;
@@ -305,7 +305,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader {
 
 .swiper-button-prev:after,
 .swiper-rtl .swiper-button-next:after {
-  content: "prev";
+  content: 'prev';
 }
 
 .swiper-button-next,
@@ -316,7 +316,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader {
 
 .swiper-button-next:after,
 .swiper-rtl .swiper-button-prev:after {
-  content: "next";
+  content: 'next';
 }
 
 .swiper-button-lock {
@@ -436,8 +436,11 @@ button.swiper-pagination-bullet {
   width: 8px;
 }
 
-.swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet,
-.swiper-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+.swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic
+  .swiper-pagination-bullet,
+.swiper-vertical
+  > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic
+  .swiper-pagination-bullet {
   display: inline-block;
   transition: 0.2s transform, 0.2s top;
 }
@@ -454,8 +457,11 @@ button.swiper-pagination-bullet {
   white-space: nowrap;
 }
 
-.swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet,
-.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+.swiper-horizontal
+  > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic
+  .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic
+  .swiper-pagination-bullet {
   transition: 0.2s transform, 0.2s left;
 }
 
@@ -684,7 +690,7 @@ swiper-container .swiper-notification {
 }
 
 .swiper-cube .swiper-cube-shadow:before {
-  content: "";
+  content: '';
   background: #000;
   position: absolute;
   left: 0;
@@ -874,7 +880,7 @@ button {
   border: 0 none;
   cursor: pointer;
   background: none;
-  font-family: "GmarketSans";
+  font-family: 'GmarketSans';
 }
 
 select::-ms-expand {
@@ -930,38 +936,44 @@ table {
   }
 }
 @font-face {
-  font-family: "diatype";
-  src: url("../fonts/diatype-black.woff2") format("woff2"), url("../fonts/diatype-black.woff") format("woff");
+  font-family: 'diatype';
+  src: url('../fonts/diatype-black.woff2') format('woff2'),
+    url('../fonts/diatype-black.woff') format('woff');
   font-weight: 800;
   font-style: normal;
 }
 @font-face {
-  font-family: "diatype";
-  src: url("../fonts/diatype-heavy.woff2") format("woff2"), url("../fonts/diatype-heavy.woff") format("woff");
+  font-family: 'diatype';
+  src: url('../fonts/diatype-heavy.woff2') format('woff2'),
+    url('../fonts/diatype-heavy.woff') format('woff');
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
-  font-family: "diatype";
-  src: url("../fonts/diatype-bold.woff2") format("woff2"), url("../fonts/diatype-bold.woff") format("woff");
+  font-family: 'diatype';
+  src: url('../fonts/diatype-bold.woff2') format('woff2'),
+    url('../fonts/diatype-bold.woff') format('woff');
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
-  font-family: "diatype";
-  src: url("../fonts/diatype-medium.woff2") format("woff2"), url("../fonts/diatype-medium.woff") format("woff");
+  font-family: 'diatype';
+  src: url('../fonts/diatype-medium.woff2') format('woff2'),
+    url('../fonts/diatype-medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
-  font-family: "diatype";
-  src: url("../fonts/diatype-regular.woff2") format("woff2"), url("../fonts/diatype-regular.woff") format("woff");
+  font-family: 'diatype';
+  src: url('../fonts/diatype-regular.woff2') format('woff2'),
+    url('../fonts/diatype-regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: "diatype";
-  src: url("../fonts/diatype-light.woff2") format("woff2"), url("../fonts/diatype-light.woff") format("woff");
+  font-family: 'diatype';
+  src: url('../fonts/diatype-light.woff2') format('woff2'),
+    url('../fonts/diatype-light.woff') format('woff');
   font-weight: 300;
   font-style: normal;
 }
@@ -1004,7 +1016,7 @@ header .inner {
 }
 header h1,
 header h1 > a {
-  font-family: "diatype";
+  font-family: 'diatype';
   font-size: 20px;
   line-height: 120%;
   color: #181818;
@@ -1045,7 +1057,7 @@ header nav li a {
 }
 header nav li p,
 header nav li div {
-  font-family: "diatype";
+  font-family: 'diatype';
   font-size: 11px;
   color: #fff;
   font-weight: 300;
@@ -1090,7 +1102,7 @@ header .menu .split-line {
   transition: all 0.18s ease-in-out;
 }
 header .menu .split-line div {
-  font-family: "diatype";
+  font-family: 'diatype';
   font-size: 11px;
   color: #121212;
   font-weight: 400;
@@ -1180,13 +1192,13 @@ header .menu .split-line div {
   z-index: 2;
 }
 .content .sec-hero .title-box h3 {
-  font-family: "diatype";
+  font-family: 'diatype';
   font-weight: 400;
   font-size: 62px;
   line-height: 150%;
 }
 .content .sec-hero .title-box p {
-  font-family: "diatype";
+  font-family: 'diatype';
   font-weight: 300;
   font-size: 18px;
   line-height: 150%;
@@ -1218,7 +1230,7 @@ header .menu .split-line div {
   padding-top: 120px;
 }
 .content .sec-about .title-box h3 {
-  font-family: "diatype";
+  font-family: 'diatype';
   font-weight: 500;
   font-size: 60px;
   line-height: 100%;
@@ -1281,14 +1293,14 @@ header .menu .split-line div {
 }
 .content .sec-about .desc-box p {
   display: flex;
-  font-family: "diatype";
+  font-family: 'diatype';
   font-size: 18px;
   line-height: 100%;
   font-weight: 300;
   grid-area: 1/5/2/9;
 }
 .content .sec-about .desc-box span {
-  font-family: "diatype";
+  font-family: 'diatype';
   font-size: 18px;
   line-height: 100%;
   font-weight: 400;
@@ -1309,7 +1321,7 @@ header .menu .split-line div {
 }
 .content .sec-about .content-box .content-t strong,
 .content .sec-about .content-box .content-t p {
-  font-family: "diatype";
+  font-family: 'diatype';
   font-size: 18px;
   line-height: 100%;
   font-weight: 400;
@@ -1349,7 +1361,7 @@ header .menu .split-line div {
 }
 .content .sec-about .content-box .content-b .title,
 .content .sec-about .content-box .content-b li {
-  font-family: "diatype";
+  font-family: 'diatype';
   font-size: 16px;
   line-height: 120%;
   font-weight: 400;
@@ -1375,13 +1387,13 @@ header .menu .split-line div {
   margin-top: 15px;
 }
 .content .sec-about .content-box .content-b li:first-child {
-  grid-column: span 3/span 3;
+  grid-column: span 3 / span 3;
 }
 .content .sec-about .content-box .content-b li:nth-child(2) {
-  grid-column: span 4/span 4;
+  grid-column: span 4 / span 4;
 }
 .content .sec-about .content-box .content-b li:last-child {
-  grid-column: span 5/span 5;
+  grid-column: span 5 / span 5;
 }
 .content .sec-work {
   display: flex;
@@ -1396,14 +1408,14 @@ header .menu .split-line div {
   align-items: flex-start;
 }
 .content .sec-work .title-box h3 {
-  font-family: "diatype";
+  font-family: 'diatype';
   font-size: 60px;
   line-height: 120%;
   font-weight: 400;
   text-transform: uppercase;
 }
 .content .sec-work .title-box span {
-  font-family: "diatype";
+  font-family: 'diatype';
   font-size: 24px;
   line-height: 190%;
   margin-left: 10px;
@@ -1425,7 +1437,7 @@ header .menu .split-line div {
 }
 .content .sec-work .title-content strong {
   display: inline-block;
-  font-family: "diatype";
+  font-family: 'diatype';
   font-size: 10vh;
   line-height: 100%;
   font-weight: 400;
@@ -1513,7 +1525,7 @@ header .menu .split-line div {
   overflow: hidden;
 }
 .content .sec-work .card-content .tit span {
-  font-family: "diatype";
+  font-family: 'diatype';
   font-size: 15px;
   font-weight: 500;
   line-height: 140%;
@@ -1546,7 +1558,7 @@ header .menu .split-line div {
   margin-right: 20px;
 }
 .content .sec-work .marquee-text p {
-  font-family: "diatype";
+  font-family: 'diatype';
   font-size: 30px;
   font-weight: 400;
   color: #181818;
@@ -1765,7 +1777,7 @@ footer .detail {
   align-items: flex-start;
 }
 footer .tit {
-  font-family: "diatype";
+  font-family: 'diatype';
   font-size: 16px;
   font-weight: 400;
   line-height: 150%;
@@ -1774,7 +1786,7 @@ footer .tit {
 }
 footer .logo {
   display: inline-block;
-  font-family: "diatype";
+  font-family: 'diatype';
   font-size: 20px;
   line-height: 120%;
   color: #fff;
@@ -1782,7 +1794,7 @@ footer .logo {
 footer p,
 footer span,
 footer button {
-  font-family: "diatype";
+  font-family: 'diatype';
   font-size: 16px;
   font-weight: 400;
   line-height: 150%;
@@ -1796,7 +1808,7 @@ footer ul {
 }
 footer ul li,
 footer ul a {
-  font-family: "diatype";
+  font-family: 'diatype';
   font-size: 16px;
   font-weight: 400;
   line-height: 150%;
@@ -1834,7 +1846,7 @@ footer .backToTop {
   border-radius: 20px !important;
 }
 .cursor_preview::before {
-  content: "Explore";
+  content: 'Explore';
   display: inline-block;
   font-size: 14px;
   color: #181818;
@@ -1862,7 +1874,7 @@ footer .backToTop {
   box-shadow: none;
 }
 .cursor_sendEmail::before {
-  content: "Send \a Email";
+  content: 'Send \a Email';
   display: inline-block;
   font-size: 14px;
   color: #181818;
@@ -1908,7 +1920,7 @@ footer .backToTop {
 .project .title-wrap p,
 .project .title-wrap span,
 .project .title-wrap li {
-  font-family: "diatype";
+  font-family: 'diatype';
   font-size: 18px;
   line-height: 120%;
   font-weight: 400;
@@ -1916,7 +1928,7 @@ footer .backToTop {
 }
 .project .title-wrap strong {
   display: block;
-  font-family: "diatype";
+  font-family: 'diatype';
   font-size: 18px;
   line-height: 120%;
   font-weight: 500;
@@ -1944,7 +1956,7 @@ footer .backToTop {
   transition: width 0.5s ease-in 0s, opacity 0.8s ease-in 0.4s;
 }
 .project .title-wrap .prj-name span {
-  font-family: "diatype";
+  font-family: 'diatype';
   font-size: 12vh;
   line-height: 120%;
   color: #181818;
@@ -2056,7 +2068,7 @@ footer .backToTop {
   width: 100%;
   max-width: 400px;
   padding: 20px 30px;
-  font-family: "diatype";
+  font-family: 'diatype';
   font-size: 18px;
   line-height: 120%;
   font-weight: 500;
@@ -2071,12 +2083,13 @@ footer .backToTop {
   transition: all 0.4s;
 }
 .project .next-btn a span::after {
-  content: "";
+  content: '';
   position: absolute;
   display: inline-block;
   width: 16px;
   height: 16px;
-  background: url("../images/ico/ico-arrow-diagonal.svg") no-repeat center center;
+  /* background: url('../images/ico/ico-arrow-diagonal.svg') no-repeat center center; */
+  background: url('/workspace/assets/images/ico/ico-arrow-diagonal.svg') no-repeat center center;
   top: 50%;
   right: -8px;
   transform: translateY(-50%);
@@ -2122,7 +2135,7 @@ footer .backToTop {
     transition: all 0.4s;
   }
   .project .next-btn a span::after {
-    content: "";
+    content: '';
     width: 14px;
     height: 14px;
     right: -7px;
@@ -2169,10 +2182,10 @@ footer .backToTop {
     display: inline-block;
   }
   .project .title-wrap .prj-skill li::after {
-    content: ",";
+    content: ',';
   }
   .project .title-wrap .prj-skill li:last-child::after {
-    content: "";
+    content: '';
   }
   .project .title-wrap .prj-skill li + li {
     margin-left: 5px;
