@@ -260,7 +260,7 @@ function createParticleShell() {
   particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
   const particleMaterial = new THREE.PointsMaterial({
-    color: 0xab9fc9,
+    color: 0xcf5583,
     size: 0.025,
     transparent: true,
     opacity: 0.8,
