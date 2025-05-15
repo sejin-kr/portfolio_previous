@@ -1011,15 +1011,6 @@ footer {
     cursor: pointer;
   }
 
-  .svg {
-    &.pc {
-      display: block;
-    }
-    &.mo {
-      display: none;
-    }
-  }
-
   @media screen and (max-width: 1024px) {
     .tit {
       font-size: 14px;
@@ -1048,16 +1039,6 @@ footer {
       li,
       a {
         word-break: break-all;
-      }
-    }
-  }
-  @media screen and (max-width: 500px) {
-    .svg {
-      &.pc {
-        display: none;
-      }
-      &.mo {
-        display: block;
       }
     }
   }
