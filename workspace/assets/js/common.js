@@ -106,9 +106,8 @@ function checkProject() {
   countNum.textContent = `(${formattedCount}+)`;
 }
 
-/**
- * 콘텐츠를 일정한 간격으로 순차적으로 나타내는 애니메이션을 적용
- */
+// * =============== Scroll Anime  ===============v *//
+// 콘텐츠를 일정한 간격으로 순차적으로 나타내는 애니메이션 //
 const contentStaggerAnime = () => {
   const staggers = document.querySelectorAll('.stagger');
 
@@ -135,9 +134,8 @@ const contentStaggerAnime = () => {
   }
 };
 
-/**
- * 콘텐츠가 opacity와 함께 나타나는 애니메이션을 적용
- */
+// * =============== Scroll Anime - Opacity  ===============v *//
+// 콘텐츠가 opacity와 함께 나타나는 애니메이션 //
 const opacityStaggerAnime = () => {
   // StaggerAnime opacity 효과
   const staggers = document.querySelectorAll('.stagger-opacity');
