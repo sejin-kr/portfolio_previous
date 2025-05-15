@@ -139,14 +139,15 @@ const contentStaggerAnime = () => {
 // Animates and updates the project number on scroll. //
 function updateProjectOrder() {
   const main = document.querySelector('.main');
+
+  if (!main) return;
+
   const cards = document.querySelectorAll('.project-list li');
   const orderBox = document.querySelector('.order-box');
   const strongs = orderBox.querySelectorAll('.order-box strong');
 
   let currentIndex = 0;
   let isAnimating = false;
-
-  if (!main) return;
 
   gsap.set(strongs[0], { yPercent: 0, opacity: 1 });
   gsap.set(strongs[1], { yPercent: 100, opacity: 0 });
