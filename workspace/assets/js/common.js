@@ -135,6 +135,34 @@ const contentStaggerAnime = () => {
   }
 };
 
+/**
+ * 콘텐츠가 opacity와 함께 나타나는 애니메이션을 적용
+ */
+const opacityStaggerAnime = () => {
+  // StaggerAnime opacity 효과
+  const staggers = document.querySelectorAll('.stagger-opacity');
+
+  if (staggers) {
+    staggers.forEach((stagger) => {
+      const staggerItems = stagger.querySelectorAll('.stagger-opacity-item');
+
+      gsap.set(staggerItems, { opacity: 0 });
+
+      gsap.to(staggerItems, {
+        stagger: 0.3,
+        duration: 1,
+        opacity: 1,
+        ease: 'power1.out',
+        scrollTrigger: {
+          trigger: stagger,
+          start: 'top 30%',
+          // markers: true,
+        },
+      });
+    });
+  }
+};
+
 // * =============== Update Project order ===============v *//
 // Animates and updates the project number on scroll. //
 function updateProjectOrder() {
@@ -440,6 +468,7 @@ window.addEventListener('load', function () {
   cursorFunc();
   checkProject();
   contentStaggerAnime();
+  opacityStaggerAnime();
   // splitTextEffect();
   updateProjectOrder();
   splitNavEffect();
