@@ -1010,6 +1010,38 @@ footer {
   .backToTop {
     cursor: pointer;
   }
+
+  @media screen and (max-width: 1024px) {
+    .tit {
+      font-size: 14px;
+    }
+    .logo {
+      font-size: 16px;
+    }
+    p,
+    span,
+    button {
+      font-size: 14px;
+    }
+    ul {
+      li,
+      a {
+        font-size: 14px;
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .detail {
+      width: 50%;
+      gap: 15px;
+    }
+    ul {
+      li,
+      a {
+        word-break: break-all;
+      }
+    }
+  }
 }
 
 //* =============== Cursor =============== *//
