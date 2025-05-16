@@ -1010,8 +1010,10 @@ footer {
   .backToTop {
     cursor: pointer;
   }
+}
 
-  @media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
+  footer {
     .tit {
       font-size: 14px;
     }
@@ -1030,7 +1032,10 @@ footer {
       }
     }
   }
-  @media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 768px) {
+  footer {
     .detail {
       width: 50%;
       gap: 15px;
