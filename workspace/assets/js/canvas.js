@@ -362,7 +362,8 @@ function init() {
   const loader = new GLTFLoader();
 
   loader.load(
-    '/heart_shaded.glb',
+    // '/heart_shaded.glb',
+    '/assets/models/heart_shaded.glb',
 
     function (gltf) {
       model = gltf.scene;

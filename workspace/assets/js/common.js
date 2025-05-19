@@ -107,8 +107,36 @@ function checkProject() {
 }
 
 // * =============== Scroll Anime  ===============v *//
+const staggerTopAnime = () => {
+  const staggers = document.querySelectorAll('.stagger-top');
+
+  console.log(staggers);
+
+  if (staggers) {
+    staggers.forEach((stagger) => {
+      const staggerItems = stagger.querySelectorAll('.stagger-item');
+      const setY = window.innerHeight > 768 ? 20 : 10;
+
+      gsap.set(staggerItems, { y: setY, opacity: 0 });
+
+      gsap.to(staggerItems, {
+        y: 0,
+        stagger: 0.5, // long이 true일 경우 간격을 더 길게 설정
+        duration: 0.8,
+        opacity: 1,
+        ease: 'power2.inOut',
+        scrollTrigger: {
+          trigger: stagger,
+          start: 'top 80%',
+          // markers: true,
+        },
+      });
+    });
+  }
+};
+
 // 콘텐츠를 일정한 간격으로 순차적으로 나타내는 애니메이션 //
-const contentStaggerAnime = () => {
+const staggerAnime = () => {
   const staggers = document.querySelectorAll('.stagger');
 
   if (staggers) {
@@ -136,7 +164,7 @@ const contentStaggerAnime = () => {
 
 // * =============== Scroll Anime - Opacity  ===============v *//
 // 콘텐츠가 opacity와 함께 나타나는 애니메이션 //
-const opacityStaggerAnime = () => {
+const staggerOpacityAnime = () => {
   // StaggerAnime opacity 효과
   const staggers = document.querySelectorAll('.stagger-opacity');
 
@@ -465,8 +493,9 @@ window.addEventListener('load', function () {
   // scrollSmoother();
   cursorFunc();
   checkProject();
-  contentStaggerAnime();
-  opacityStaggerAnime();
+  staggerTopAnime();
+  staggerAnime();
+  staggerOpacityAnime();
   // splitTextEffect();
   updateProjectOrder();
   splitNavEffect();
