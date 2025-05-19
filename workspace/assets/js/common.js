@@ -4,7 +4,7 @@ gsap.registerPlugin(ScrollTrigger);
 function scrollSmoother() {
   ScrollSmoother.create({
     smooth: 1,
-    speed: 0.95,
+    speed: 0.96,
     effects: true,
   });
 }
@@ -109,8 +109,6 @@ function checkProject() {
 // * =============== Scroll Anime  ===============v *//
 const staggerTopAnime = () => {
   const staggers = document.querySelectorAll('.stagger-top');
-
-  console.log(staggers);
 
   if (staggers) {
     staggers.forEach((stagger) => {
