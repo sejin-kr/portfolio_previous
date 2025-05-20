@@ -238,8 +238,7 @@ function shuffleText() {
     // once: true,
     // markers: true,
     onEnter: () => {
-      console.log('onEnter');
-
+      // console.log('onEnter');
       content.classList.add('in-view');
       header.classList.add('in-view');
 
@@ -248,9 +247,16 @@ function shuffleText() {
         shuffleText(el, originalText);
       });
     },
+    onEnterBack: () => {
+      content.classList.add('in-view');
+      header.classList.add('in-view');
+    },
     onLeave: () => {
-      console.log('onLeave');
-
+      // console.log('onLeave');
+      content.classList.remove('in-view');
+      header.classList.remove('in-view');
+    },
+    onLeaveBack: () => {
       content.classList.remove('in-view');
       header.classList.remove('in-view');
     },
