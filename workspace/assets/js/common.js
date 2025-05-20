@@ -263,6 +263,34 @@ function shuffleText() {
   });
 }
 
+// * =============== change Img Scroll ===============v *//
+function changeImgScroll() {
+  const imgBox = document.querySelector('.sec-about .title-b .img-box');
+  if (!imgBox) return;
+
+  const images = imgBox.querySelectorAll('img');
+  if (images.length < 2) return;
+
+  // ScrollTrigger 설정
+  gsap.to(images, {
+    scrollTrigger: {
+      trigger: '.sec-about',
+      start: 'top center',
+      end: '15% center',
+      // scrub: 1,
+      // markers: true,
+      onUpdate: (self) => {
+        const progress = self.progress;
+
+        gsap.to(images, {
+          yPercent: -100 * progress,
+          duration: 0.1,
+        });
+      },
+    },
+  });
+}
+
 // * =============== Update Project order ===============v *//
 // Animates and updates the project number on scroll. //
 function updateProjectOrder() {
@@ -545,6 +573,7 @@ window.addEventListener('load', function () {
   staggerTopAnime();
   staggerAnime();
   staggerOpacityAnime();
+  changeImgScroll();
   // splitTextEffect();
   updateProjectOrder();
   splitNavEffect();

@@ -106,3 +106,47 @@ function randomImgScroll() {
 
 // 함수 실행
 randomImgScroll();
+
+function initAboutScrollAnimation() {
+  const imgBox = document.querySelector('.sec-about .title-b .img-box');
+  if (!imgBox) return;
+
+  const images = imgBox.querySelectorAll('img');
+  if (images.length < 2) return;
+
+  // 초기 상태 설정
+  images[0].style.transform = 'translateY(0)';
+  images[1].style.transform = 'translateY(100%)';
+
+  // ScrollTrigger 설정
+  gsap.to(images, {
+    scrollTrigger: {
+      trigger: '.sec-about',
+      start: 'top center',
+      end: 'bottom center',
+      scrub: 1,
+      onUpdate: (self) => {
+        const progress = self.progress;
+
+        // 첫 번째 이미지 애니메이션
+        gsap.to(images[0], {
+          yPercent: -100 * progress,
+          duration: 0.1,
+        });
+
+        // 두 번째 이미지 애니메이션
+        gsap.to(images[1], {
+          yPercent: 100 - 100 * progress,
+          duration: 0.1,
+        });
+      },
+    },
+  });
+}
+
+// DOM이 로드된 후 실행
+document.addEventListener('DOMContentLoaded', () => {
+  // ... existing code ...
+  initAboutScrollAnimation();
+  // ... existing code ...
+});
