@@ -58,20 +58,22 @@ function cursorFunc() {
   });
 
   // ✨ footer 호버시 클래스 추가
-  footer.addEventListener('mouseenter', () => {
-    cursor.classList.add('cursor_point');
-  });
-  footer.addEventListener('mouseleave', () => {
-    cursor.classList.remove('cursor_point');
-  });
+  if (footer) {
+    footer.addEventListener('mouseenter', () => {
+      cursor.classList.add('cursor_point');
+    });
+    footer.addEventListener('mouseleave', () => {
+      cursor.classList.remove('cursor_point');
+    });
 
-  // ✨ footer text 호버시 클래스 추가
-  footerText.addEventListener('mouseenter', () => {
-    cursor.classList.add('cursor_sendEmail');
-  });
-  footerText.addEventListener('mouseleave', () => {
-    cursor.classList.remove('cursor_sendEmail');
-  });
+    // ✨ footer text 호버시 클래스 추가
+    footerText.addEventListener('mouseenter', () => {
+      cursor.classList.add('cursor_sendEmail');
+    });
+    footerText.addEventListener('mouseleave', () => {
+      cursor.classList.remove('cursor_sendEmail');
+    });
+  }
 }
 
 // * =============== hide Header ===============v *//
@@ -238,7 +240,6 @@ function shuffleText() {
     // once: true,
     // markers: true,
     onEnter: () => {
-      // console.log('onEnter');
       content.classList.add('in-view');
       header.classList.add('in-view');
 
@@ -252,7 +253,6 @@ function shuffleText() {
       header.classList.add('in-view');
     },
     onLeave: () => {
-      // console.log('onLeave');
       content.classList.remove('in-view');
       header.classList.remove('in-view');
     },
@@ -472,32 +472,6 @@ function marqueeTextEffect() {
   });
 }
 
-// * =============== sticky scrolling card ===============v *//
-function scrollCardsFunc() {
-  const contentWrap = document.querySelector('.sec-work .content-wrap');
-  const listItem = document.querySelector('.card-content ul li');
-
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      // trigger: contentWrap,
-      // pin: true,
-      scrub: 0.3,
-      start: 'top top',
-      // pin: '.typo-wrap',
-      // end: () => `+=${listItem.length * 300}`, // 리스트 개수에 따라 스크롤 길이 조정
-      // markers: true,
-    },
-  });
-
-  // listItem.forEach((item, index) => {
-  //   tl.to(item, { y: 0, duration: 0.5 }, index * 0.3);
-  // });
-
-  // tl.add(() => {
-  //   ScrollTrigger.getById('scrollTriggerId')?.kill();
-  // });
-}
-
 // * =============== scrollTrigger - footer ===============v *//
 function scrollFooter() {
   const main = document.querySelector('.main');
@@ -575,7 +549,6 @@ window.addEventListener('load', function () {
   updateProjectOrder();
   splitNavEffect();
   marqueeTextEffect();
-  scrollCardsFunc();
   scrollFooter();
   moveToOffsetTop();
   backToTop();

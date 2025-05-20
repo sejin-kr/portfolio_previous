@@ -225,11 +225,16 @@ header {
   border-bottom-right-radius: 0;
   transform-origin: 50% 100% 0px;
   z-index: 2;
-  transition: all 0.6s ease-in;
+
+  section {
+    transition: all 0.6s ease-in;
+  }
 
   &.in-view {
-    background-color: $default-bl-color;
-    color: $default-wh-color;
+    section {
+      background-color: $default-bl-color;
+      color: $default-wh-color;
+    }
   }
 
   .inner {
@@ -262,6 +267,8 @@ header {
       width: 100%;
       padding: 300px 0 30px;
       text-align: center;
+      color: #0059ff;
+      mix-blend-mode: color-dodge;
       z-index: 2;
 
       h3 {
@@ -303,7 +310,6 @@ header {
     width: 100%;
     height: auto;
     // background-color: #fff;
-    border-top: 1px solid #000;
 
     .title-box {
       padding-top: 120px;
@@ -358,7 +364,7 @@ header {
         aspect-ratio: 3 / 2;
         object-fit: cover;
         max-width: 100%;
-        width: 270px;
+        width: 220px;
         height: 180px;
         overflow: hidden;
       }
@@ -708,7 +714,7 @@ header {
         }
 
         .img-box {
-          width: 200px;
+          width: 170px;
           height: 160px;
         }
       }

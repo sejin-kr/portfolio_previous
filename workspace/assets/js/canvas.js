@@ -1,441 +1,269 @@
-// import * as THREE from 'three';
-// import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-
-// let gui;
-// let scene, camera, renderer, mesh, controls;
-// let mouse = { x: 0, y: 0 };
-// let targetRotation = { x: 0, y: 0 };
-
-// let uniforms;
-
-// function init() {
-//   // Scene & Camera
-//   scene = new THREE.Scene();
-//   camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
-//   camera.position.z = 3;
-
-//   // Renderer
-//   renderer = new THREE.WebGLRenderer({ antialias: true });
-//   renderer.setSize(window.innerWidth, window.innerHeight);
-//   renderer.setClearColor(0xffffff);
-//   const container = document.querySelector('.sec-hero');
-//   container.appendChild(renderer.domElement);
-
-//   // Light 1: Pink light
-//   const pinkLight = new THREE.PointLight(0xffb6c1, 2.5, 10);
-//   pinkLight.position.set(2, 2, 2);
-//   scene.add(pinkLight);
-
-//   // Light 2: Blue light
-//   const blueLight = new THREE.PointLight(0xadd8e6, 2, 10);
-//   blueLight.position.set(-2, -2, 2);
-//   scene.add(blueLight);
-
-//   // Light 3: Ambient Light
-//   const ambient = new THREE.AmbientLight(0xffffff, 3);
-//   scene.add(ambient);
-
-//   // Light 4: Directional Light
-//   const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-//   directionalLight.position.set(3.8, 1, 5);
-//   scene.add(directionalLight);
-
-//   // Geometry & Material
-//   const geometry = new THREE.IcosahedronGeometry(1, 6); // Sphere-like
-//   const material = new THREE.MeshStandardMaterial({
-//     // color: 0xffccff,
-//     // metalness: 0.6,
-//     // roughness: 0.1,
-//     // envMapIntensity: 2,
-//     // clearcoat: 1.0,
-//     // envMapIntensity: 1,
-//     // flatShading: false,
-//     color: 0xdddddd, // 거의 흰색이나 살짝 푸른빛 추천
-//     metalness: 0,
-//     roughness: 0,
-//     transparent: true,
-//     opacity: 0.5,
-//     transmission: 1.0, // 빛을 통과시킴 (MeshPhysicalMaterial에서만 가능)
-//     ior: 1.5, // 유리 굴절률
-//     thickness: 0.1, // 유리 두께 (빛 굴절에 영향)
-//     envMapIntensity: 1.0, // 주변 반사 정도
-//     clearcoat: 1.0,
-//   });
-
-//   uniforms = {
-//     time: { value: 0.0 },
-//     color: { value: new THREE.Color(0xffedfa) },
-//   };
-
-//   // Mesh
-//   mesh = new THREE.Mesh(geometry, material);
-//   mesh.scale.set(0.6, 0.6, 0.6);
-//   scene.add(mesh);
-
-//   // OrbitControls
-//   controls = new OrbitControls(camera, renderer.domElement);
-//   controls.enableDamping = true;
-//   controls.dampingFactor = 0.25;
-//   controls.screenSpacePanning = false;
-
-//   // dat.GUI
-//   gui = new dat.GUI();
-
-//   // Create a folder for controlling the camera
-//   const cameraFolder = gui.addFolder('Camera');
-//   cameraFolder.add(camera.position, 'x', -10, 10).name('Camera X');
-//   cameraFolder.add(camera.position, 'y', -10, 10).name('Camera Y');
-//   cameraFolder.add(camera.position, 'z', -10, 10).name('Camera Z');
-//   cameraFolder.open(); // 폴더 열기
-
-//   // Create a folder for controlling the mesh material
-//   const materialFolder = gui.addFolder('Material');
-//   materialFolder.add(mesh.material, 'metalness', 0, 1).name('Metalness');
-//   materialFolder.add(mesh.material, 'roughness', 0, 1).name('Roughness');
-//   materialFolder.add(mesh.material, 'envMapIntensity', 0, 1).name('Env Map Intensity');
-//   materialFolder.open(); // 폴더 열기
-
-//   const dirFolder = gui.addFolder('Directional Light');
-//   dirFolder.add(directionalLight.position, 'x', -10, 10);
-//   dirFolder.add(directionalLight.position, 'y', -10, 10);
-//   dirFolder.add(directionalLight.position, 'z', -10, 10);
-//   dirFolder.open();
-
-//   // Event
-//   document.addEventListener('mousemove', onMouseMove, false);
-//   window.addEventListener('resize', onWindowResize, false);
-// }
-
-// function onMouseMove(event) {
-//   // Normalize mouse coordinates between -1 and 1
-//   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-//   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-//   // Set target rotation based on mouse position (반대방향: -)
-//   targetRotation.y = -mouse.x * 0.5;
-//   targetRotation.x = -mouse.y * 0.5;
-// }
-
-// function onWindowResize() {
-//   camera.aspect = window.innerWidth / window.innerHeight;
-//   camera.updateProjectionMatrix();
-//   renderer.setSize(window.innerWidth, window.innerHeight);
-// }
-
-// function animate() {
-//   requestAnimationFrame(animate);
-
-//   uniforms.time.value += 0.02;
-
-//   // Smooth rotation
-//   mesh.rotation.x += (targetRotation.x - mesh.rotation.x) * 0.03;
-//   mesh.rotation.y += (targetRotation.y - mesh.rotation.y) * 0.03;
-
-//   // Update controls
-//   controls.update();
-
-//   renderer.render(scene, camera);
-// }
-
-// document.addEventListener('DOMContentLoaded', function () {
-//   init();
-//   animate();
-// });
-// ************************************************************************************************************** //
-// import * as THREE from 'three';
-// import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-
-// let gui;
-// let scene, camera, renderer, mesh, controls;
-// let mouse = { x: 0, y: 0 };
-// let targetRotation = { x: 0, y: 0 };
-
-// let uniforms;
-// let particleGroup;
-// let basePositions;
-// let particleGeometry;
-
-// function init() {
-//   scene = new THREE.Scene();
-//   camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
-//   camera.position.z = 3;
-
-//   renderer = new THREE.WebGLRenderer({ antialias: true });
-//   renderer.setSize(window.innerWidth, window.innerHeight);
-//   renderer.setClearColor(0xffffff);
-//   const container = document.querySelector('.sec-hero');
-//   container.appendChild(renderer.domElement);
-
-//   const pinkLight = new THREE.PointLight(0xffb6c1, 2.5, 10);
-//   pinkLight.position.set(2, 2, 2);
-//   scene.add(pinkLight);
-
-//   const blueLight = new THREE.PointLight(0xadd8e6, 2, 10);
-//   blueLight.position.set(-2, -2, 2);
-//   scene.add(blueLight);
-
-//   const ambient = new THREE.AmbientLight(0xffffff, 3);
-//   scene.add(ambient);
-
-//   const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-//   directionalLight.position.set(3.8, 1, 5);
-//   scene.add(directionalLight);
-
-//   const geometry = new THREE.IcosahedronGeometry(1, 6);
-//   const material = new THREE.MeshStandardMaterial({
-//     color: 0xdddddd,
-//     metalness: 0,
-//     roughness: 0,
-//     transparent: true,
-//     opacity: 0.5,
-//     transmission: 1.0,
-//     ior: 1.5,
-//     thickness: 0.1,
-//     envMapIntensity: 1.0,
-//     clearcoat: 1.0,
-//   });
-
-//   uniforms = {
-//     time: { value: 0.0 },
-//     color: { value: new THREE.Color(0xffedfa) },
-//   };
-
-//   mesh = new THREE.Mesh(geometry, material);
-//   mesh.scale.set(0.6, 0.6, 0.6);
-//   scene.add(mesh);
-
-//   createParticleShell();
-
-//   controls = new OrbitControls(camera, renderer.domElement);
-//   controls.enableDamping = true;
-//   controls.dampingFactor = 0.25;
-//   controls.screenSpacePanning = false;
-
-//   gui = new dat.GUI();
-//   const cameraFolder = gui.addFolder('Camera');
-//   cameraFolder.add(camera.position, 'x', -10, 10).name('Camera X');
-//   cameraFolder.add(camera.position, 'y', -10, 10).name('Camera Y');
-//   cameraFolder.add(camera.position, 'z', -10, 10).name('Camera Z');
-//   cameraFolder.open();
-
-//   const materialFolder = gui.addFolder('Material');
-//   materialFolder.add(mesh.material, 'metalness', 0, 1).name('Metalness');
-//   materialFolder.add(mesh.material, 'roughness', 0, 1).name('Roughness');
-//   materialFolder.add(mesh.material, 'envMapIntensity', 0, 1).name('Env Map Intensity');
-//   materialFolder.open();
-
-//   const dirFolder = gui.addFolder('Directional Light');
-//   dirFolder.add(directionalLight.position, 'x', -10, 10);
-//   dirFolder.add(directionalLight.position, 'y', -10, 10);
-//   dirFolder.add(directionalLight.position, 'z', -10, 10);
-//   dirFolder.open();
-
-//   document.addEventListener('mousemove', onMouseMove, false);
-//   window.addEventListener('resize', onWindowResize, false);
-// }
-
-// function createParticleShell() {
-//   const particleCount = 1000;
-//   const radius = 0.9;
-//   const positions = new Float32Array(particleCount * 3);
-//   basePositions = new Float32Array(particleCount * 3);
-
-//   for (let i = 0; i < particleCount; i++) {
-//     const theta = Math.random() * Math.PI * 2;
-//     const phi = Math.acos(2 * Math.random() - 1);
-
-//     const x = radius * Math.sin(phi) * Math.cos(theta);
-//     const y = radius * Math.sin(phi) * Math.sin(theta);
-//     const z = radius * Math.cos(phi);
-
-//     positions[i * 3] = x;
-//     positions[i * 3 + 1] = y;
-//     positions[i * 3 + 2] = z;
-
-//     basePositions[i * 3] = x;
-//     basePositions[i * 3 + 1] = y;
-//     basePositions[i * 3 + 2] = z;
-//   }
-
-//   particleGeometry = new THREE.BufferGeometry();
-//   particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-//   const particleMaterial = new THREE.PointsMaterial({
-//     color: 0xbfcdea,
-//     size: 0.025,
-//     transparent: true,
-//     opacity: 0.8,
-//   });
-
-//   const particles = new THREE.Points(particleGeometry, particleMaterial);
-//   particleGroup = new THREE.Group();
-//   particleGroup.add(particles);
-//   scene.add(particleGroup);
-// }
-
-// function onMouseMove(event) {
-//   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-//   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-//   targetRotation.y = -mouse.x * 0.5;
-//   targetRotation.x = -mouse.y * 0.5;
-// }
-
-// function onWindowResize() {
-//   camera.aspect = window.innerWidth / window.innerHeight;
-//   camera.updateProjectionMatrix();
-//   renderer.setSize(window.innerWidth, window.innerHeight);
-// }
-
-// function animate() {
-//   requestAnimationFrame(animate);
-//   uniforms.time.value += 0.02;
-
-//   mesh.rotation.x += (targetRotation.x - mesh.rotation.x) * 0.03;
-//   mesh.rotation.y += (targetRotation.y - mesh.rotation.y) * 0.03;
-
-//   if (particleGroup && particleGeometry) {
-//     const positions = particleGeometry.attributes.position.array;
-//     for (let i = 0; i < positions.length; i += 5) {
-//       const spreadX = 1 + mouse.x * 0.1;
-//       const spreadY = 1 + mouse.y * 0.1;
-//       positions[i] = basePositions[i] * spreadX;
-//       positions[i + 1] = basePositions[i + 1] * spreadY;
-//       positions[i + 2] = basePositions[i + 2];
-//     }
-//     particleGeometry.attributes.position.needsUpdate = true;
-//     particleGroup.rotation.y += 0.002;
-//   }
-
-//   controls.update();
-//   renderer.render(scene, camera);
-// }
-
-// document.addEventListener('DOMContentLoaded', function () {
-//   init();
-//   animate();
-// });
-
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'; // glb loader
 
-// 기존 전역 변수 유지
-let gui;
-let scene, camera, renderer, model, controls;
+let scene, camera, renderer, mesh;
 let mouse = { x: 0, y: 0 };
 let targetRotation = { x: 0, y: 0 };
-
-let uniforms;
-let particleGroup;
-let basePositions;
-let particleGeometry;
+let scrollY = 0;
+let targetScrollY = 0;
+let rippleEffect = 0;
+let scrollDir = 0; // -1, 0, 1
+let transitionWeight = 1; // 0~1, 1이면 현재 방향 100%
+let lastDir = 0;
+let targetScale = 1;
+let currentScale = 0.0; // scale 0에서 시작
+let targetRotationY = 0; // 0deg
+let currentRotationY = Math.PI / 6; // 30deg
+let geometry, material;
 
 function init() {
+  // Scene & Camera
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
   camera.position.z = 3;
 
-  renderer = new THREE.WebGLRenderer({ antialias: true });
+  // Renderer
+  renderer = new THREE.WebGLRenderer({
+    antialias: true,
+    alpha: true,
+  });
   renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setClearColor(0xffffff);
   const container = document.querySelector('.sec-hero');
   container.appendChild(renderer.domElement);
 
-  // 조명 설정 동일
-  const pinkLight = new THREE.PointLight(0xffb6c1, 2.5, 10);
-  pinkLight.position.set(2, 2, 2);
-  scene.add(pinkLight);
-
-  const blueLight = new THREE.PointLight(0xadd8e6, 2, 10);
-  blueLight.position.set(-2, -2, 2);
-  scene.add(blueLight);
-
-  const ambient = new THREE.AmbientLight(0xffffff, 3);
+  // Lights
+  const ambient = new THREE.AmbientLight(0xffffff, 1);
   scene.add(ambient);
 
   const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-  directionalLight.position.set(3.8, 1, 5);
+  directionalLight.position.set(1, 1, 1);
   scene.add(directionalLight);
 
-  // ✅ GLB 모델 로딩
-  const loader = new GLTFLoader();
-
-  loader.load(
-    // '/heart_shaded.glb',
-    '/assets/models/heart_shaded.glb',
-
-    function (gltf) {
-      model = gltf.scene;
-      model.scale.set(0.6, 0.6, 0.6);
-      scene.add(model);
+  // Geometry & Material
+  const geometry = new THREE.PlaneGeometry(1.4, 1.6, 32, 32);
+  const material = new THREE.ShaderMaterial({
+    uniforms: {
+      uTime: { value: 0 },
+      uMouse: { value: new THREE.Vector2(0, 0) },
+      uScroll: { value: 0 },
+      uRipple: { value: 0 },
+      uScrollDir: { value: 0 },
+      uTransitionWeight: { value: 1 },
+      uTexture: { value: new THREE.TextureLoader().load('../assets/images/test.jpg') },
+      uIsMobile: { value: window.innerWidth <= 768 ? 1 : 0 },
     },
-    undefined,
-    function (error) {
-      console.error('An error occurred loading the GLB model:', error);
-    }
-  );
+    vertexShader: `
+      varying vec2 vUv;
+      uniform float uTime;
+      uniform vec2 uMouse;
+      uniform float uScroll;
+      uniform float uRipple;
 
-  uniforms = {
-    time: { value: 0.0 },
-    color: { value: new THREE.Color(0xffedfa) },
-  };
+      void main() {
+        vUv = uv;
 
-  controls = new OrbitControls(camera, renderer.domElement);
-  controls.enableDamping = true;
-  controls.dampingFactor = 0.25;
-  controls.screenSpacePanning = false;
+        vec3 pos = position;
 
-  gui = new dat.GUI();
-  const cameraFolder = gui.addFolder('Camera');
-  cameraFolder.add(camera.position, 'x', -10, 10).name('Camera X');
-  cameraFolder.add(camera.position, 'y', -10, 10).name('Camera Y');
-  cameraFolder.add(camera.position, 'z', -10, 10).name('Camera Z');
-  cameraFolder.open();
+        // 마우스 움직임에 따른 변형
+        float dist = distance(uv, uMouse);
+        float influence = smoothstep(0.5, 0.0, dist);
+        pos.z += influence * 0.1;
 
-  const dirFolder = gui.addFolder('Directional Light');
-  dirFolder.add(directionalLight.position, 'x', -10, 10);
-  dirFolder.add(directionalLight.position, 'y', -10, 10);
-  dirFolder.add(directionalLight.position, 'z', -10, 10);
-  dirFolder.open();
+        // 스크롤에 따른 물결 효과
+        float ripple = sin(dist * 10.0 - uTime * 4.0) * uRipple;
+        pos.z += ripple * 0.05;
 
-  document.addEventListener('mousemove', onMouseMove, false);
-  // window.addEventListener('resize', onWindowResize, false);
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+      }
+    `,
+
+    fragmentShader: `
+      varying vec2 vUv;
+      uniform sampler2D uTexture;
+      uniform float uTime;
+      uniform vec2 uMouse;
+      uniform float uScroll;
+      uniform float uRipple;
+      uniform float uScrollDir;
+      uniform float uTransitionWeight;
+
+      // 홀로그램 컬러 함수
+      vec3 hologramColor(float t) {
+        return vec3(
+          0.5 + 0.5 * sin(6.2831 * t + 0.0),
+          0.5 + 0.5 * sin(6.2831 * t + 2.0),
+          0.5 + 0.5 * sin(6.2831 * t + 4.0)
+        );
+      }
+
+      void main() {
+        vec2 uv = vUv;
+
+        // 마우스 움직임에 따른 UV 왜곡
+        float dist = distance(uv, uMouse);
+        float influence = smoothstep(0.5, 0.0, dist);
+        uv += (uv - uMouse) * influence * 0.1;
+
+        // 스크롤에 따른 페이드 아웃
+        float fade = 1.0 - smoothstep(0.0, 1.0, uScroll);
+
+        // 홀로그램 효과 강도
+        float holoStrength = uScroll * 6.2;
+
+        // RGB 분리(프리즘 효과)
+        float angle = uTime * 0.2 + uScroll * 2.0;
+        vec2 offset = vec2(cos(angle), sin(angle)) * 0.01 * holoStrength;
+        vec4 texR = texture2D(uTexture, uv + offset);
+        vec4 texG = texture2D(uTexture, uv);
+        vec4 texB = texture2D(uTexture, uv - offset);
+        vec4 tex = vec4(texR.r, texG.g, texB.b, texG.a);
+
+        // 홀로그램 컬러 오버레이
+        vec3 holo = hologramColor(uv.x + uv.y + uTime * 0.1) * holoStrength * 0.6;
+
+        // 아래쪽(내려갈 때) 마스크
+        float maskDown = smoothstep(0.5, 0.0, uv.y);
+        // 위쪽(올라갈 때) 마스크
+        float maskUp = smoothstep(1.0, 0.5, uv.y);
+
+        // 현재 방향에 따라 보간
+        float mask = 0.0;
+        if (uScrollDir > 0.0) {
+          mask = mix(maskUp, maskDown, uTransitionWeight);
+        } else if (uScrollDir < 0.0) {
+          mask = mix(maskDown, maskUp, uTransitionWeight);
+        }
+
+        mask = clamp(mask, 0.0, 1.0);
+
+        // 홀로그램 효과를 마스크로 제한
+        gl_FragColor = vec4(tex.rgb + holo * mask, tex.a * fade);
+      }
+    `,
+    transparent: true,
+  });
+
+  mesh = new THREE.Mesh(geometry, material);
+  mesh.scale.set(currentScale, currentScale, currentScale);
+  mesh.rotation.y = currentRotationY;
+  scene.add(mesh);
+
+  // Event Listeners
+  document.addEventListener('mousemove', onMouseMove);
+  window.addEventListener('resize', onWindowResize);
+  window.addEventListener('scroll', onScroll);
+
+  animate();
 }
 
 function onMouseMove(event) {
-  // 화면 좌표를 -1 ~ 1 사이로 정규화
-  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  mouse.x = event.clientX / window.innerWidth;
+  mouse.y = 1 - event.clientY / window.innerHeight;
+}
+
+function onScroll() {
+  targetScrollY = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+}
+
+// PlaneGeometry 생성 함수
+function createPlaneGeometryToFitSecHero() {
+  const container = document.querySelector('.sec-hero');
+  const width = container.offsetWidth;
+  const height = container.offsetHeight;
+
+  // 카메라 z, fov, aspect에 따라 화면에 딱 맞는 크기 계산
+  const vFov = (camera.fov * Math.PI) / 180;
+  const planeHeight = 2 * Math.tan(vFov / 2) * camera.position.z;
+  const planeWidth = planeHeight * camera.aspect;
+
+  // sec-hero의 비율에 맞게 PlaneGeometry 생성
+  const targetAspect = width / height;
+  let geoWidth, geoHeight;
+  if (targetAspect > camera.aspect) {
+    geoWidth = planeWidth;
+    geoHeight = planeWidth / targetAspect;
+  } else {
+    geoHeight = planeHeight;
+    geoWidth = planeHeight * targetAspect;
+  }
+
+  return new THREE.PlaneGeometry(geoWidth, geoHeight, 32, 32);
+}
+
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  if (window.innerWidth <= 768) {
+    // 기존 mesh 제거
+    scene.remove(mesh);
+    // 새 geometry 생성
+    geometry = createPlaneGeometryToFitSecHero();
+    mesh.geometry.dispose();
+    mesh.geometry = geometry;
+    // scale은 1로 고정
+    mesh.scale.set(1, 1, 1);
+    scene.add(mesh);
+  } else {
+    // 데스크탑일 때는 기존 geometry/scale 사용
+    // (원하는 기본 geometry로 복원)
+    // 필요시 geometry를 다시 생성해서 할당
+    // mesh.scale.set(currentScale, currentScale, currentScale);
+  }
 }
 
 function animate() {
   requestAnimationFrame(animate);
-  uniforms.time.value += 0.02;
 
-  if (model) {
-    model.rotation.x += (targetRotation.x - model.rotation.x) * 0.03;
-    model.rotation.y += (targetRotation.y - model.rotation.y) * 0.03;
+  scrollY += (targetScrollY - scrollY) * 0.1;
+
+  // 스크롤 방향 계산
+  let dir = 0;
+  if (targetScrollY > scrollY) dir = 1;
+  else if (targetScrollY < scrollY) dir = -1;
+
+  // 방향이 바뀌면 transitionWeight를 0부터 시작
+  if (dir !== lastDir && dir !== 0) {
+    scrollDir = dir;
+    transitionWeight = 0;
+    lastDir = dir;
+  }
+  // 방향이 유지되면 transitionWeight를 1로 서서히 증가
+  if (transitionWeight < 1) {
+    transitionWeight += 0.08;
+    if (transitionWeight > 1) transitionWeight = 1;
   }
 
-  if (particleGroup && particleGeometry) {
-    const positions = particleGeometry.attributes.position.array;
-    for (let i = 0; i < positions.length; i += 5) {
-      const spreadX = 1 + mouse.x * 0.1;
-      const spreadY = 1 + mouse.y * 0.1;
-      positions[i] = basePositions[i] * spreadX;
-      positions[i + 1] = basePositions[i + 1] * spreadY;
-      positions[i + 2] = basePositions[i + 2];
-    }
-    particleGeometry.attributes.position.needsUpdate = true;
-    particleGroup.rotation.y += 0.002;
+  mesh.material.uniforms.uScrollDir.value = scrollDir;
+  mesh.material.uniforms.uTransitionWeight.value = transitionWeight;
+
+  // 768px 이하일 때 물결 효과 약하게, 그 외에는 강하게
+  if (window.innerWidth <= 768) {
+    rippleEffect = 0.3;
+  } else {
+    rippleEffect = 1.0;
   }
 
-  controls.update();
+  // 쉐이더 유니폼 업데이트
+  mesh.material.uniforms.uTime.value += 0.01;
+  mesh.material.uniforms.uMouse.value.set(mouse.x, mouse.y);
+  mesh.material.uniforms.uScroll.value = scrollY;
+  mesh.material.uniforms.uRipple.value = rippleEffect;
+
+  // scale, rotation 보간 (자연스럽게 커지고 회전)
+  if (currentScale < targetScale) {
+    currentScale += (targetScale - currentScale) * 0.03;
+    if (Math.abs(currentScale - targetScale) < 0.001) currentScale = targetScale;
+  }
+  if (Math.abs(currentRotationY - targetRotationY) > 0.001) {
+    currentRotationY += (targetRotationY - currentRotationY) * 0.02;
+    if (Math.abs(currentRotationY - targetRotationY) < 0.001) currentRotationY = targetRotationY;
+  }
+  mesh.scale.set(currentScale, currentScale, currentScale);
+  mesh.rotation.y = currentRotationY;
+
   renderer.render(scene, camera);
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  // init();
-  // animate();
-});
+document.addEventListener('DOMContentLoaded', init);
