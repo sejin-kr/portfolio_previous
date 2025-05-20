@@ -49,7 +49,8 @@ function init() {
       uRipple: { value: 0 },
       uScrollDir: { value: 0 },
       uTransitionWeight: { value: 1 },
-      uTexture: { value: new THREE.TextureLoader().load('../assets/images/test.jpg') },
+      // uTexture: { value: new THREE.TextureLoader().load('../assets/images/test.jpg') },  // for local
+      uTexture: { value: new THREE.TextureLoader().load('/workspace/assets/images/test.jpg') }, // for server
       uIsMobile: { value: window.innerWidth <= 768 ? 1 : 0 },
     },
     vertexShader: `
