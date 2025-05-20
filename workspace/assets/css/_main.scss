@@ -25,6 +25,16 @@ header {
     opacity: 1;
   }
 
+  &.in-view {
+    h1 a,
+    .menu .split-line div {
+      color: #fff;
+    }
+    .menu span:first-child {
+      background-color: #fff;
+    }
+  }
+
   .inner {
     width: 100%;
     max-width: 1440px;
@@ -215,6 +225,12 @@ header {
   border-bottom-right-radius: 0;
   transform-origin: 50% 100% 0px;
   z-index: 2;
+  transition: all 0.6s ease-in;
+
+  &.in-view {
+    background-color: $default-bl-color;
+    color: $default-wh-color;
+  }
 
   .inner {
     width: 100%;
@@ -229,7 +245,7 @@ header {
     position: relative;
     width: 100%;
     height: 100vh;
-    background-color: #fff;
+    // background-color: #fff;
 
     #webgl-canvas {
       position: absolute;
@@ -286,7 +302,7 @@ header {
   .sec-about {
     width: 100%;
     height: auto;
-    background-color: #fff;
+    // background-color: #fff;
     border-top: 1px solid #000;
 
     .title-box {
@@ -309,7 +325,7 @@ header {
         grid-column-gap: 15px;
         grid-row-gap: 15px;
 
-        h3 {
+        > div {
           grid-column: 4/8;
         }
       }
@@ -410,7 +426,7 @@ header {
           position: relative;
           width: 60%;
           height: 0;
-          padding-bottom: 56%;
+          padding-bottom: 58%;
         }
         img {
           position: absolute;
@@ -693,7 +709,7 @@ header {
 
         .img-box {
           width: 200px;
-          height: 130px;
+          height: 160px;
         }
       }
 
@@ -806,8 +822,8 @@ header {
         }
 
         .img-box {
-          width: 200px;
-          height: 130px;
+          width: 140px;
+          height: 120px;
         }
       }
 

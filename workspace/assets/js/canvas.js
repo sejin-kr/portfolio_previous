@@ -436,6 +436,6 @@ function animate() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  init();
-  animate();
+  // init();
+  // animate();
 });

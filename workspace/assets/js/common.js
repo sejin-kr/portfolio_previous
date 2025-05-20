@@ -106,7 +106,7 @@ function checkProject() {
   countNum.textContent = `(${formattedCount}+)`;
 }
 
-// * =============== Scroll Anime  ===============v *//
+// * =============== Scroll Anime - Top ===============v *//
 const staggerTopAnime = () => {
   const staggers = document.querySelectorAll('.stagger-top');
 
@@ -133,7 +133,7 @@ const staggerTopAnime = () => {
   }
 };
 
-// 콘텐츠를 일정한 간격으로 순차적으로 나타내는 애니메이션 //
+// * =============== Scroll Anime - Default ===============v *//
 const staggerAnime = () => {
   const staggers = document.querySelectorAll('.stagger');
 
@@ -186,6 +186,76 @@ const staggerOpacityAnime = () => {
     });
   }
 };
+
+// * =============== Shuffle Text ===============v *//
+function shuffleText() {
+  const shuffleTextElements = document.querySelector('.shuffleText');
+  const targetTexts = document.querySelectorAll('.shuffleText .title-box h3');
+  const velocity = 85; // 효과 속도(ms)
+
+  const content = document.querySelector('.content');
+  const header = document.querySelector('header');
+
+  if (!shuffleTextElements) return;
+
+  // * mix text
+  const shuffle = function (array) {
+    for (
+      let j, x, i = array.length;
+      i;
+      j = Math.floor(Math.random() * i), x = array[--i], array[i] = array[j], array[j] = x
+    );
+    return array;
+  };
+
+  // * animation
+  const shuffleText = function (element, originalText) {
+    const elementTextArray = Array.from(originalText);
+    let randomText = [];
+    const repeatShuffle = function (times, index) {
+      if (index === times) {
+        element.textContent = originalText; // set the final text
+        return;
+      }
+      setTimeout(function () {
+        randomText = shuffle([...elementTextArray]); // mix array
+        for (let i = 0; i < index; i++) {
+          randomText[i] = originalText[i]; // only partially fixed
+        }
+        randomText = randomText.join('');
+        element.textContent = randomText; // update text
+        repeatShuffle(times, index + 1); // recursive call
+      }, velocity);
+    };
+    repeatShuffle(originalText.length, 0);
+  };
+
+  // * set the event
+  ScrollTrigger.create({
+    trigger: shuffleTextElements,
+    start: 'top 30%',
+    end: 'bottom-=20% 30%',
+    // once: true,
+    // markers: true,
+    onEnter: () => {
+      console.log('onEnter');
+
+      content.classList.add('in-view');
+      header.classList.add('in-view');
+
+      targetTexts.forEach((el) => {
+        const originalText = el.textContent.trim();
+        shuffleText(el, originalText);
+      });
+    },
+    onLeave: () => {
+      console.log('onLeave');
+
+      content.classList.remove('in-view');
+      header.classList.remove('in-view');
+    },
+  });
+}
 
 // * =============== Update Project order ===============v *//
 // Animates and updates the project number on scroll. //
@@ -491,6 +561,7 @@ window.addEventListener('load', function () {
   // scrollSmoother();
   cursorFunc();
   checkProject();
+  shuffleText();
   staggerTopAnime();
   staggerAnime();
   staggerOpacityAnime();
