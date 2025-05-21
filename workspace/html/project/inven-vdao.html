@@ -16,6 +16,16 @@
     <title>Sejin</title>
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
+
+    <!-- importmap -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.176.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.176.0/examples/jsm/"
+        }
+      }
+    </script>
   </head>
   <body>
     <div class="wrap" id="smooth-wrapper">
@@ -66,6 +76,9 @@
         <!-- content -->
         <div class="content">
           <div class="inner">
+            <!-- canvas -->
+            <canvas id="webgl-canvas"></canvas>
+
             <div class="title-wrap stagger-top">
               <div class="prj-name-box">
                 <div class="prj-name">
@@ -187,9 +200,11 @@
     <!-- for Local -->
     <script type="text/javascript" src="../../assets/js/common.js"></script>
     <script type="text/javascript" src="../../assets/js/project.js"></script>
+    <script type="module" src="../../assets/js/project-canvas.js"></script>
 
     <!-- for Deploy -->
     <!-- <script type="text/javascript" src="../../../workspace/assets/js/common.js"></script>
     <script type="text/javascript" src="../../../workspace/assets/js/project.js"></script> -->
+    <!-- <script type="text/javascript" src="../../../workspace/assets/js/project-canvas.js"></script> -->
   </body>
 </html>

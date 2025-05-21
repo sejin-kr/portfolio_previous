@@ -175,7 +175,7 @@ gulp.task('browserSync', () => {
   return new Promise((resolve) => {
     browserSync.init(null, {
       proxy: 'http://localhost:8000',
-      port: 8080,
+      port: 1999,
     });
     resolve();
   });

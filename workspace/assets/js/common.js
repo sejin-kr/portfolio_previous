@@ -264,28 +264,58 @@ function shuffleText() {
 }
 
 // * =============== change Img Scroll ===============v *//
+// function changeImgScroll() {
+//   const imgBox = document.querySelector('.sec-about .title-b .img-box');
+//   if (!imgBox) return;
+
+//   const images = imgBox.querySelectorAll('img');
+//   if (images.length < 2) return;
+
+//   // ScrollTrigger 설정
+//   gsap.to(images, {
+//     scrollTrigger: {
+//       trigger: '.sec-about',
+//       start: 'top center',
+//       end: '15% center',
+//       // scrub: 1,
+//       // markers: true,
+//       onUpdate: (self) => {
+//         const progress = self.progress;
+
+//         gsap.to(images, {
+//           yPercent: -100 * progress,
+//           duration: 0.1,
+//         });
+//       },
+//     },
+//   });
+// }
+
+// * =============== change Img Scroll ===============v *//
 function changeImgScroll() {
   const imgBox = document.querySelector('.sec-about .title-b .img-box');
+
   if (!imgBox) return;
 
   const images = imgBox.querySelectorAll('img');
-  if (images.length < 2) return;
+
+  // 두 번째 이미지 초기 상태 설정
+  // images[1].style.transform = 'matrix(1, 0, 0, 0, 0, 0) scaleY(2)';
+  gsap.set(images[1], {
+    transform: 'matrix(1, 0, 0, 0, 0, 0) scaleY(2)',
+  });
 
   // ScrollTrigger 설정
-  gsap.to(images, {
+  gsap.to(images[1], {
     scrollTrigger: {
       trigger: '.sec-about',
       start: 'top center',
       end: '15% center',
-      // scrub: 1,
+      scrub: 1,
       // markers: true,
       onUpdate: (self) => {
         const progress = self.progress;
-
-        gsap.to(images, {
-          yPercent: -100 * progress,
-          duration: 0.1,
-        });
+        images[1].style.transform = `matrix(1, 0, 0, ${progress}, 0, 0)  scaleY(${progress})`;
       },
     },
   });

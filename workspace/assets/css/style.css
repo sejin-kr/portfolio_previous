@@ -1163,7 +1163,7 @@ header .menu .split-line div {
 }
 .content .inner {
   width: 100%;
-  max-width: 1480px;
+  max-width: 1440px;
   padding: 0 20px;
   margin: 0 auto;
   box-sizing: border-box;
@@ -1199,7 +1199,7 @@ header .menu .split-line div {
 }
 .content .sec-hero .title-box p {
   font-family: "diatype";
-  font-weight: 300;
+  font-weight: 400;
   font-size: 18px;
   line-height: 150%;
   margin-top: 10px;
@@ -1230,10 +1230,9 @@ header .menu .split-line div {
 }
 .content .sec-about .title-box h3 {
   font-family: "diatype";
-  font-weight: 500;
+  font-weight: 400;
   font-size: 60px;
   line-height: 100%;
-  text-transform: uppercase;
   color: #d9d9d9;
 }
 .content .sec-about .title-box .title-t {
@@ -1278,10 +1277,13 @@ header .menu .split-line div {
   overflow: hidden;
 }
 .content .sec-about .title-box img {
+  position: absolute;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  transform-origin: bottom;
+  overflow: hidden;
 }
 .content .sec-about .desc-box {
   display: grid;
@@ -1326,10 +1328,12 @@ header .menu .split-line div {
   font-size: 18px;
   line-height: 100%;
   font-weight: 400;
+  line-height: 125%;
 }
 .content .sec-about .content-box .content-t p {
-  font-weight: 300;
+  font-weight: 400;
   margin-top: 20px;
+  line-height: 125%;
 }
 .content .sec-about .content-box .content-t .img-box {
   position: relative;
@@ -1402,6 +1406,28 @@ header .menu .split-line div {
 }
 .content .sec-work {
   display: flex;
+}
+.content .sec-work .shuffleText {
+  position: relative;
+  transition: all 0.5s ease;
+}
+.content .sec-work .shuffleText.in-view {
+  background: radial-gradient(circle at center, rgba(var(--default-bl-color-rgb), 0.25) 0%, rgba(var(--default-bl-color-rgb), 0.15) 25%, rgba(var(--default-bl-color-rgb), 0.08) 50%, transparent 70%);
+  background-size: 200% 200%;
+  animation: hologram 4s ease-in-out infinite;
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+}
+@keyframes hologram {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
 }
 .content .sec-work .content-wrap {
   display: flex;
