@@ -401,13 +401,24 @@
       }
 
       .row-02 {
+        flex-direction: column;
+        gap: 20px;
+
         div {
+          width: 100%;
           border-radius: 10px 10px 0 0;
+        }
+        .video-box {
+          padding-bottom: 180%;
         }
       }
 
       .row-03 {
+        flex-direction: column;
+        gap: 20px;
+
         div {
+          width: 100%;
           border-radius: 10px 10px 0 0;
         }
       }
