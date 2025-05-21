@@ -9,11 +9,11 @@ function projectTitle() {
 }
 
 const contentStaggerTopAnime = () => {
-  const staggers = document.querySelectorAll('.stagger-top');
+  const staggers = document.querySelectorAll('.project .stagger-top');
 
   if (staggers) {
     staggers.forEach((stagger) => {
-      const staggerItems = stagger.querySelectorAll('.stagger-item');
+      const staggerItems = stagger.querySelectorAll('.project .stagger-item');
       const setY = window.innerHeight > 768 ? 20 : 10;
 
       gsap.set(staggerItems, { y: setY, opacity: 0 });
