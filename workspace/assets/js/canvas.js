@@ -49,8 +49,8 @@ function init() {
       uRipple: { value: 0 },
       uScrollDir: { value: 0 },
       uTransitionWeight: { value: 1 },
-      // uTexture: { value: new THREE.TextureLoader().load('../assets/images/test.jpg') }, // for local
-      uTexture: { value: new THREE.TextureLoader().load('/workspace/assets/images/test.jpg') }, // for server
+      uTexture: { value: new THREE.TextureLoader().load('../assets/images/test.jpg') }, // for local
+      // uTexture: { value: new THREE.TextureLoader().load('/workspace/assets/images/test.jpg') }, // for server
       uIsMobile: { value: window.innerWidth <= 768 ? 1 : 0 },
     },
     vertexShader: `
@@ -177,6 +177,12 @@ function createPlaneGeometryToFitSecHero() {
   const planeHeight = 2 * Math.tan(vFov / 2) * camera.position.z;
   const planeWidth = planeHeight * camera.aspect;
 
+  // 모바일 여부 판단
+  const isMobile = window.innerWidth <= 768;
+
+  // 세분화 수치 설정
+  const segments = isMobile ? 16 : 32;
+
   // sec-hero의 비율에 맞게 PlaneGeometry 생성
   const targetAspect = width / height;
   let geoWidth, geoHeight;
@@ -188,7 +194,7 @@ function createPlaneGeometryToFitSecHero() {
     geoWidth = planeHeight * targetAspect;
   }
 
-  return new THREE.PlaneGeometry(geoWidth, geoHeight, 32, 32);
+  return new THREE.PlaneGeometry(planeWidth, planeHeight, segments, segments);
 }
 
 function onWindowResize() {
