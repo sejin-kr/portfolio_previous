@@ -297,27 +297,28 @@ function changeImgScroll() {
 
   if (!imgBox) return;
 
-  const images = imgBox.querySelectorAll('img');
+  const image = imgBox.querySelector('img');
 
-  // 두 번째 이미지 초기 상태 설정
-  // images[1].style.transform = 'matrix(1, 0, 0, 0, 0, 0) scaleY(2)';
-  gsap.set(images[1], {
-    transform: 'matrix(1, 0, 0, 0, 0, 0) scaleY(2)',
+  if (!image) return;
+
+  // 초기 clip-path 설정
+  gsap.set(image, {
+    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+    filter: 'blur(10px)',
   });
 
-  // ScrollTrigger 설정
-  gsap.to(images[1], {
+  // ScrollTrigger로 clip-path 애니메이션 적용
+  gsap.to(image, {
+    clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
+    filter: 'blur(0px)',
     scrollTrigger: {
       trigger: '.sec-about',
       start: 'top center',
       end: '15% center',
       scrub: 1,
       // markers: true,
-      onUpdate: (self) => {
-        const progress = self.progress;
-        images[1].style.transform = `matrix(1, 0, 0, ${progress}, 0, 0)  scaleY(${progress})`;
-      },
     },
+    ease: 'none',
   });
 }
 
