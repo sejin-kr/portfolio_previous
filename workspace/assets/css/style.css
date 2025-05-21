@@ -1623,9 +1623,11 @@ header .menu .split-line div {
   .content .sec-about .content-box {
     padding-top: 200px;
   }
-  .content .sec-about .content-box .content-t strong,
-  .content .sec-about .content-box .content-t p {
+  .content .sec-about .content-box .content-t strong {
     font-size: 14px;
+  }
+  .content .sec-about .content-box .content-t p {
+    font-size: 12px;
   }
   .content .sec-about .content-box .content-b > div + div {
     margin-top: 25px;

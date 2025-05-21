@@ -790,9 +790,11 @@ header {
         padding-top: 200px;
 
         .content-t {
-          strong,
-          p {
+          strong {
             font-size: 14px;
+          }
+          p {
+            font-size: 12px;
           }
         }
 
