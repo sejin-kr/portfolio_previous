@@ -193,7 +193,7 @@ const staggerOpacityAnime = () => {
 function shuffleText() {
   const shuffleTextElements = document.querySelector('.shuffleText');
   const targetTexts = document.querySelectorAll('.shuffleText .title-box h3');
-  const velocity = 85; // 효과 속도(ms)
+  const velocity = 80; // 효과 속도(ms)
 
   const content = document.querySelector('.content');
   const header = document.querySelector('header');
@@ -260,65 +260,6 @@ function shuffleText() {
       content.classList.remove('in-view');
       header.classList.remove('in-view');
     },
-  });
-}
-
-// * =============== change Img Scroll ===============v *//
-// function changeImgScroll() {
-//   const imgBox = document.querySelector('.sec-about .title-b .img-box');
-//   if (!imgBox) return;
-
-//   const images = imgBox.querySelectorAll('img');
-//   if (images.length < 2) return;
-
-//   // ScrollTrigger 설정
-//   gsap.to(images, {
-//     scrollTrigger: {
-//       trigger: '.sec-about',
-//       start: 'top center',
-//       end: '15% center',
-//       // scrub: 1,
-//       // markers: true,
-//       onUpdate: (self) => {
-//         const progress = self.progress;
-
-//         gsap.to(images, {
-//           yPercent: -100 * progress,
-//           duration: 0.1,
-//         });
-//       },
-//     },
-//   });
-// }
-
-// * =============== change Img Scroll ===============v *//
-function changeImgScroll() {
-  const imgBox = document.querySelector('.sec-about .title-b .img-box');
-
-  if (!imgBox) return;
-
-  const image = imgBox.querySelector('img');
-
-  if (!image) return;
-
-  // 초기 clip-path 설정
-  gsap.set(image, {
-    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-    filter: 'blur(10px)',
-  });
-
-  // ScrollTrigger로 clip-path 애니메이션 적용
-  gsap.to(image, {
-    clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
-    filter: 'blur(0px)',
-    scrollTrigger: {
-      trigger: '.sec-about',
-      start: 'top center',
-      end: '15% center',
-      scrub: 1,
-      // markers: true,
-    },
-    ease: 'none',
   });
 }
 
@@ -604,7 +545,6 @@ window.addEventListener('load', function () {
   staggerTopAnime();
   staggerAnime();
   staggerOpacityAnime();
-  changeImgScroll();
   // splitTextEffect();
   updateProjectOrder();
   splitNavEffect();
