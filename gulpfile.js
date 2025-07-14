@@ -55,17 +55,11 @@ gulp.task("scss:compile", () => {
 });
 
 gulp.task("clean", () => {
-  return new Promise((resolve) => {
-    del.sync(DEST_PATH.HTML);
-    resolve();
-  });
+  return del(DEST_PATH.HTML);
 });
 
 gulp.task("clean-dev", () => {
-  return new Promise((resolve) => {
-    del.sync("./dist/inc");
-    resolve();
-  });
+  return del("./dist/inc");
 });
 
 gulp.task("imagemin", () => {
