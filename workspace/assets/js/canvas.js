@@ -19,7 +19,12 @@ let geometry, material;
 function init() {
   // Scene & Camera
   scene = new THREE.Scene();
-  camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+  camera = new THREE.PerspectiveCamera(
+    45,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    100
+  );
   camera.position.z = 3;
 
   // Renderer
@@ -28,7 +33,7 @@ function init() {
     alpha: true,
   });
   renderer.setSize(window.innerWidth, window.innerHeight);
-  const container = document.querySelector('.sec-hero');
+  const container = document.querySelector(".sec-hero");
   container.appendChild(renderer.domElement);
 
   // Lights
@@ -50,7 +55,9 @@ function init() {
       uScrollDir: { value: 0 },
       uTransitionWeight: { value: 1 },
       // uTexture: { value: new THREE.TextureLoader().load('../assets/images/test.jpg') }, // for local
-      uTexture: { value: new THREE.TextureLoader().load('/workspace/assets/images/test.jpg') }, // for server
+      uTexture: {
+        value: new THREE.TextureLoader().load("/assets/images/test.jpg"),
+      }, // for server
       uIsMobile: { value: window.innerWidth <= 768 ? 1 : 0 },
     },
     vertexShader: `
@@ -150,9 +157,9 @@ function init() {
   scene.add(mesh);
 
   // Event Listeners
-  document.addEventListener('mousemove', onMouseMove);
-  window.addEventListener('resize', onWindowResize);
-  window.addEventListener('scroll', onScroll);
+  document.addEventListener("mousemove", onMouseMove);
+  window.addEventListener("resize", onWindowResize);
+  window.addEventListener("scroll", onScroll);
 
   animate();
 }
@@ -163,12 +170,14 @@ function onMouseMove(event) {
 }
 
 function onScroll() {
-  targetScrollY = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+  targetScrollY =
+    window.scrollY /
+    (document.documentElement.scrollHeight - window.innerHeight);
 }
 
 // PlaneGeometry 생성 함수
 function createPlaneGeometryToFitSecHero() {
-  const container = document.querySelector('.sec-hero');
+  const container = document.querySelector(".sec-hero");
   const width = container.offsetWidth;
   const height = container.offsetHeight;
 
@@ -261,11 +270,13 @@ function animate() {
   // scale, rotation 보간 (자연스럽게 커지고 회전)
   if (currentScale < targetScale) {
     currentScale += (targetScale - currentScale) * 0.03;
-    if (Math.abs(currentScale - targetScale) < 0.001) currentScale = targetScale;
+    if (Math.abs(currentScale - targetScale) < 0.001)
+      currentScale = targetScale;
   }
   if (Math.abs(currentRotationY - targetRotationY) > 0.001) {
     currentRotationY += (targetRotationY - currentRotationY) * 0.02;
-    if (Math.abs(currentRotationY - targetRotationY) < 0.001) currentRotationY = targetRotationY;
+    if (Math.abs(currentRotationY - targetRotationY) < 0.001)
+      currentRotationY = targetRotationY;
   }
   mesh.scale.set(currentScale, currentScale, currentScale);
   mesh.rotation.y = currentRotationY;
