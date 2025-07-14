@@ -48,7 +48,7 @@ header {
 
   h1,
   h1 > a {
-    font-family: 'diatype';
+    font-family: "diatype";
     font-size: 20px;
     line-height: 120%;
     color: $default-bl-color;
@@ -92,7 +92,7 @@ header {
 
       p,
       div {
-        font-family: 'diatype';
+        font-family: "diatype";
         font-size: 11px;
         color: $wh-color;
         font-weight: 300;
@@ -145,7 +145,7 @@ header {
       transition: all 0.18s ease-in-out;
     }
     .split-line div {
-      font-family: 'diatype';
+      font-family: "diatype";
       font-size: 11px;
       color: #121212;
       font-weight: 400;
@@ -272,13 +272,13 @@ header {
       z-index: 2;
 
       h3 {
-        font-family: 'diatype';
+        font-family: "diatype";
         font-weight: 400;
         font-size: 62px;
         line-height: 150%;
       }
       p {
-        font-family: 'diatype';
+        font-family: "diatype";
         font-weight: 400;
         font-size: 18px;
         line-height: 150%;
@@ -315,7 +315,7 @@ header {
       padding-top: 120px;
 
       h3 {
-        font-family: 'diatype';
+        font-family: "diatype";
         font-weight: 400;
         font-size: 45px;
         line-height: 100%;
@@ -327,7 +327,7 @@ header {
         display: flex;
         justify-content: center;
         align-items: center;
-        font-family: 'diatype';
+        font-family: "diatype";
         font-size: 18px;
         line-height: 100%;
         font-weight: 400;
@@ -406,14 +406,14 @@ header {
 
       p {
         display: flex;
-        font-family: 'diatype';
+        font-family: "diatype";
         font-size: 14px;
-        line-height: 125%;
+        line-height: 150%;
         font-weight: 400;
         grid-area: 1 / 5 / 2 / 9;
       }
       span {
-        font-family: 'diatype';
+        font-family: "diatype";
         font-size: 18px;
         line-height: 100%;
         font-weight: 400;
@@ -437,17 +437,17 @@ header {
 
         strong,
         p {
-          font-family: 'diatype';
+          font-family: "diatype";
           font-size: 18px;
           line-height: 100%;
           font-weight: 400;
-          line-height: 125%;
+          line-height: 150%;
         }
         p {
           font-size: 14px;
           font-weight: 400;
           margin-top: 20px;
-          line-height: 125%;
+          line-height: 150%;
         }
 
         .img-box {
@@ -488,7 +488,7 @@ header {
 
         .title,
         li {
-          font-family: 'diatype';
+          font-family: "diatype";
           font-size: 16px;
           line-height: 120%;
           font-weight: 400;
@@ -573,14 +573,14 @@ header {
       align-items: flex-start;
 
       h3 {
-        font-family: 'diatype';
+        font-family: "diatype";
         font-size: 60px;
         line-height: 120%;
         font-weight: 400;
         text-transform: uppercase;
       }
       span {
-        font-family: 'diatype';
+        font-family: "diatype";
         font-size: 24px;
         line-height: 190%;
         margin-left: 10px;
@@ -605,7 +605,7 @@ header {
 
       strong {
         display: inline-block;
-        font-family: 'diatype';
+        font-family: "diatype";
         font-size: 10vh;
         line-height: 100%;
         font-weight: 400;
@@ -709,7 +709,7 @@ header {
         }
 
         span {
-          font-family: 'diatype';
+          font-family: "diatype";
           font-size: 15px;
           font-weight: 500;
           line-height: 140%;
@@ -747,7 +747,7 @@ header {
         margin-right: 20px;
       }
       p {
-        font-family: 'diatype';
+        font-family: "diatype";
         font-size: 30px;
         font-weight: 400;
         color: $default-bl-color;
@@ -1047,7 +1047,7 @@ footer {
   }
 
   .tit {
-    font-family: 'diatype';
+    font-family: "diatype";
     font-size: 16px;
     font-weight: 400;
     line-height: 150%;
@@ -1057,7 +1057,7 @@ footer {
 
   .logo {
     display: inline-block;
-    font-family: 'diatype';
+    font-family: "diatype";
     font-size: 20px;
     line-height: 120%;
     color: #fff;
@@ -1066,7 +1066,7 @@ footer {
   p,
   span,
   button {
-    font-family: 'diatype';
+    font-family: "diatype";
     font-size: 16px;
     font-weight: 400;
     line-height: 150%;
@@ -1081,7 +1081,7 @@ footer {
 
     li,
     a {
-      font-family: 'diatype';
+      font-family: "diatype";
       font-size: 16px;
       font-weight: 400;
       line-height: 150%;
@@ -1165,7 +1165,7 @@ footer {
   border-radius: 20px !important;
 
   &::before {
-    content: 'Explore';
+    content: "Explore";
     display: inline-block;
     font-size: 14px;
     color: $default-bl-color;
@@ -1194,7 +1194,7 @@ footer {
   box-shadow: none;
 
   &::before {
-    content: 'Send \A Email';
+    content: "Send \A Email";
     display: inline-block;
     font-size: 14px;
     color: $default-bl-color;

@@ -1,0 +1,33 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website",
+  "main": "app.js",
+  "scripts": {
+    "start": "gulp",
+    "dev": "gulp",
+    "build": "gulp clean && gulp scss:compile && gulp html && gulp script:concat && gulp imagemin && gulp models && gulp video && gulp fonts && gulp library"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "ejs": "^3.1.9"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.69.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-nodemon": "^2.4.2",
+    "browser-sync": "^2.29.3",
+    "gulp-concat": "^2.6.1",
+    "delete": "^1.1.0",
+    "gulp-html-tag-include": "^1.0.0"
+  },
+  "keywords": [
+    "portfolio",
+    "gulp",
+    "express"
+  ],
+  "author": "",
+  "license": "ISC"
+}
