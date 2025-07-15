@@ -687,6 +687,42 @@ header {
             transition: opacity 0.4s ease-out;
           }
         }
+
+        // * 비공개 프로젝트 카드
+        &.type_lg {
+          .img-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(
+                circle at 20% 80%,
+                rgba(255, 171, 187, 0.7),
+                transparent 70%
+              ),
+              radial-gradient(
+                circle at 80% 20%,
+                rgba(249, 210, 229, 0.6),
+                transparent 60%
+              ),
+              radial-gradient(
+                circle at 50% 50%,
+                rgba(255, 230, 235, 0.6),
+                transparent 80%
+              );
+            background-color: #f0e0e5;
+          }
+
+          .ico-logo {
+            width: 140px;
+            height: 60px;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+        }
       }
 
       .tit {
