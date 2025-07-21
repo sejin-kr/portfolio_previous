@@ -513,6 +513,7 @@ header {
         .list-content ~ .list-header {
           margin-top: 15px;
         }
+
         li {
           &:first-child {
             grid-column: span 3 / span 3;
@@ -523,6 +524,109 @@ header {
           &:last-child {
             grid-column: span 5 / span 5;
           }
+        }
+        .col-9 {
+          grid-column: span 9 / span 9;
+        }
+      }
+    }
+  }
+
+  // stack-section
+  .sec-stack {
+    .title-box {
+      h3 {
+        font-family: "diatype";
+        font-size: 40px;
+        line-height: 120%;
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+    }
+
+    .stack-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      margin-top: 30px;
+      padding: 0;
+      gap: 40px;
+
+      > ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        width: 100%;
+      }
+    }
+
+    .stack-item {
+      width: calc(50% - 20px);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      gap: 10px;
+
+      strong {
+        font-family: "diatype";
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 125%;
+        color: #121212;
+        margin-bottom: 8px;
+      }
+    }
+
+    .stack-desc {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 0 0 0 12px;
+
+      li {
+        position: relative;
+        font-family: "diatype";
+        font-size: 16px;
+        color: #444;
+        line-height: 170%;
+        padding-left: 12px;
+        word-break: keep-all;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        top: 12px;
+        left: 0;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: #121212;
+        margin-right: 8px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .sec-stack {
+      .stack-list {
+        gap: 16px;
+
+        > ul {
+          flex-direction: column;
+        }
+      }
+      .stack-item {
+        width: 100%;
+        padding: 16px 8px;
+        strong {
+          font-size: 16px;
+        }
+      }
+      .stack-desc {
+        li {
+          font-size: 12px;
         }
       }
     }
