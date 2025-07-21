@@ -66,6 +66,12 @@
       opacity: 0.5;
     }
 
+    .prj-link {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
     .prj-link a {
       font-family: 'diatype';
       font-size: 14px;
