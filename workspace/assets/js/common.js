@@ -11,11 +11,11 @@ function scrollSmoother() {
 
 // * =============== cursor ===============v *//
 function cursorFunc() {
-  const main = document.querySelector('.main');
-  const cursor = document.getElementById('cursor');
-  const cards = document.querySelectorAll('.card');
-  const footer = document.querySelector('footer');
-  const footerText = document.querySelector('footer .f-txt');
+  const main = document.querySelector(".main");
+  const cursor = document.getElementById("cursor");
+  const cards = document.querySelectorAll(".card");
+  const footer = document.querySelector("footer");
+  const footerText = document.querySelector("footer .f-txt");
 
   // 실제 마우스 좌표
   let mouseX = 0;
@@ -27,7 +27,7 @@ function cursorFunc() {
 
   const speed = 0.1;
 
-  document.addEventListener('mousemove', (e) => {
+  document.addEventListener("mousemove", (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
   });
@@ -48,57 +48,57 @@ function cursorFunc() {
 
   // ✨ 카드에 호버시 cursor_preview 클래스 추가
   cards.forEach((item) => {
-    item.addEventListener('mouseenter', () => {
-      cursor.classList.add('cursor_preview');
+    item.addEventListener("mouseenter", () => {
+      cursor.classList.add("cursor_preview");
     });
 
-    item.addEventListener('mouseleave', () => {
-      cursor.classList.remove('cursor_preview');
+    item.addEventListener("mouseleave", () => {
+      cursor.classList.remove("cursor_preview");
     });
   });
 
   // ✨ footer 호버시 클래스 추가
   if (footer) {
-    footer.addEventListener('mouseenter', () => {
-      cursor.classList.add('cursor_point');
+    footer.addEventListener("mouseenter", () => {
+      cursor.classList.add("cursor_point");
     });
-    footer.addEventListener('mouseleave', () => {
-      cursor.classList.remove('cursor_point');
+    footer.addEventListener("mouseleave", () => {
+      cursor.classList.remove("cursor_point");
     });
 
     // ✨ footer text 호버시 클래스 추가
-    footerText.addEventListener('mouseenter', () => {
-      cursor.classList.add('cursor_sendEmail');
+    footerText.addEventListener("mouseenter", () => {
+      cursor.classList.add("cursor_sendEmail");
     });
-    footerText.addEventListener('mouseleave', () => {
-      cursor.classList.remove('cursor_sendEmail');
+    footerText.addEventListener("mouseleave", () => {
+      cursor.classList.remove("cursor_sendEmail");
     });
   }
 }
 
 // * =============== hide Header ===============v *//
 function headerVisibility() {
-  const main = document.querySelector('.main');
-  const nav = document.querySelector('header nav');
-  const header = document.querySelector('header');
+  const main = document.querySelector(".main");
+  const nav = document.querySelector("header nav");
+  const header = document.querySelector("header");
 
   if (!nav) return;
 
   if (main) {
-    header.classList.add('new-load');
-    nav.classList.add('is-visible');
-    nav.classList.remove('is-hidden');
+    header.classList.add("new-load");
+    nav.classList.add("is-visible");
+    nav.classList.remove("is-hidden");
   } else {
-    header.classList.add('new-load');
-    nav.classList.add('is-hidden');
+    header.classList.add("new-load");
+    nav.classList.add("is-hidden");
   }
 }
 
 // * =============== check number of projects ===============v *//
 function checkProject() {
-  const main = document.querySelector('.main');
-  const prjItems = document.querySelectorAll('.project-list li');
-  const countNum = document.querySelector('.sec-work .title-box span');
+  const main = document.querySelector(".main");
+  const prjItems = document.querySelectorAll(".project-list li");
+  const countNum = document.querySelector(".sec-work .title-box span");
 
   if (!main) return;
 
@@ -110,11 +110,11 @@ function checkProject() {
 
 // * =============== Scroll Anime - Top ===============v *//
 const staggerTopAnime = () => {
-  const staggers = document.querySelectorAll('.stagger-top');
+  const staggers = document.querySelectorAll(".stagger-top");
 
   if (staggers) {
     staggers.forEach((stagger) => {
-      const staggerItems = stagger.querySelectorAll('.stagger-item');
+      const staggerItems = stagger.querySelectorAll(".stagger-item");
       const setY = window.innerHeight > 768 ? 20 : 10;
 
       gsap.set(staggerItems, { y: setY, opacity: 0 });
@@ -124,10 +124,10 @@ const staggerTopAnime = () => {
         stagger: 0.5, // long이 true일 경우 간격을 더 길게 설정
         duration: 0.8,
         opacity: 1,
-        ease: 'power2.inOut',
+        ease: "power2.inOut",
         scrollTrigger: {
           trigger: stagger,
-          start: 'top 80%',
+          start: "top 80%",
           // markers: true,
         },
       });
@@ -137,24 +137,24 @@ const staggerTopAnime = () => {
 
 // * =============== Scroll Anime - Default ===============v *//
 const staggerAnime = () => {
-  const staggers = document.querySelectorAll('.stagger');
+  const staggers = document.querySelectorAll(".stagger");
 
   if (staggers) {
     staggers.forEach((stagger) => {
-      const staggerItems = stagger.querySelectorAll('.stagger-item');
+      const staggerItems = stagger.querySelectorAll(".stagger-item");
       const setY = window.innerHeight > 768 ? 20 : 10;
 
       gsap.set(staggerItems, { y: setY, opacity: 0 });
 
       gsap.to(staggerItems, {
         y: 0,
-        stagger: 0.5, // long이 true일 경우 간격을 더 길게 설정
+        stagger: 0.4, // long이 true일 경우 간격을 더 길게 설정
         duration: 0.8,
         opacity: 1,
-        ease: 'power2.inOut',
+        ease: "power2.inOut",
         scrollTrigger: {
           trigger: stagger,
-          start: 'top 30%',
+          start: "top 25%",
           // markers: true,
         },
       });
@@ -166,11 +166,11 @@ const staggerAnime = () => {
 // 콘텐츠가 opacity와 함께 나타나는 애니메이션 //
 const staggerOpacityAnime = () => {
   // StaggerAnime opacity 효과
-  const staggers = document.querySelectorAll('.stagger-opacity');
+  const staggers = document.querySelectorAll(".stagger-opacity");
 
   if (staggers) {
     staggers.forEach((stagger) => {
-      const staggerItems = stagger.querySelectorAll('.stagger-opacity-item');
+      const staggerItems = stagger.querySelectorAll(".stagger-opacity-item");
 
       gsap.set(staggerItems, { opacity: 0 });
 
@@ -178,10 +178,10 @@ const staggerOpacityAnime = () => {
         stagger: 0.3,
         duration: 1,
         opacity: 1,
-        ease: 'power1.out',
+        ease: "power1.out",
         scrollTrigger: {
           trigger: stagger,
-          start: 'top 30%',
+          start: "top 30%",
           // markers: true,
         },
       });
@@ -191,12 +191,12 @@ const staggerOpacityAnime = () => {
 
 // * =============== Shuffle Text ===============v *//
 function shuffleText() {
-  const shuffleTextElements = document.querySelector('.shuffleText');
-  const targetTexts = document.querySelectorAll('.shuffleText .title-box h3');
+  const shuffleTextElements = document.querySelector(".shuffleText");
+  const targetTexts = document.querySelectorAll(".shuffleText .title-box h3");
   const velocity = 80; // 효과 속도(ms)
 
-  const content = document.querySelector('.content');
-  const header = document.querySelector('header');
+  const content = document.querySelector(".content");
+  const header = document.querySelector("header");
 
   if (!shuffleTextElements) return;
 
@@ -205,7 +205,10 @@ function shuffleText() {
     for (
       let j, x, i = array.length;
       i;
-      j = Math.floor(Math.random() * i), x = array[--i], array[i] = array[j], array[j] = x
+      j = Math.floor(Math.random() * i),
+        x = array[--i],
+        array[i] = array[j],
+        array[j] = x
     );
     return array;
   };
@@ -224,7 +227,7 @@ function shuffleText() {
         for (let i = 0; i < index; i++) {
           randomText[i] = originalText[i]; // only partially fixed
         }
-        randomText = randomText.join('');
+        randomText = randomText.join("");
         element.textContent = randomText; // update text
         repeatShuffle(times, index + 1); // recursive call
       }, velocity);
@@ -235,13 +238,13 @@ function shuffleText() {
   // * set the event
   ScrollTrigger.create({
     trigger: shuffleTextElements,
-    start: 'top 30%',
-    end: 'bottom-=20% 30%',
+    start: "top 30%",
+    end: "bottom-=20% 30%",
     // once: true,
     // markers: true,
     onEnter: () => {
-      content.classList.add('in-view');
-      header.classList.add('in-view');
+      content.classList.add("in-view");
+      header.classList.add("in-view");
 
       targetTexts.forEach((el) => {
         const originalText = el.textContent.trim();
@@ -249,16 +252,16 @@ function shuffleText() {
       });
     },
     onEnterBack: () => {
-      content.classList.add('in-view');
-      header.classList.add('in-view');
+      content.classList.add("in-view");
+      header.classList.add("in-view");
     },
     onLeave: () => {
-      content.classList.remove('in-view');
-      header.classList.remove('in-view');
+      content.classList.remove("in-view");
+      header.classList.remove("in-view");
     },
     onLeaveBack: () => {
-      content.classList.remove('in-view');
-      header.classList.remove('in-view');
+      content.classList.remove("in-view");
+      header.classList.remove("in-view");
     },
   });
 }
@@ -266,13 +269,13 @@ function shuffleText() {
 // * =============== Update Project order ===============v *//
 // Animates and updates the project number on scroll. //
 function updateProjectOrder() {
-  const main = document.querySelector('.main');
+  const main = document.querySelector(".main");
 
   if (!main) return;
 
-  const cards = document.querySelectorAll('.project-list li');
-  const orderBox = document.querySelector('.order-box');
-  const strongs = orderBox.querySelectorAll('.order-box strong');
+  const cards = document.querySelectorAll(".project-list li");
+  const orderBox = document.querySelector(".order-box");
+  const strongs = orderBox.querySelectorAll(".order-box strong");
 
   let currentIndex = 0;
   let isAnimating = false;
@@ -283,8 +286,8 @@ function updateProjectOrder() {
   cards.forEach((card, index) => {
     ScrollTrigger.create({
       trigger: card,
-      start: 'top center',
-      end: 'bottom center',
+      start: "top center",
+      end: "bottom center",
       // markers: true,
       onEnter: () => animateTo(index),
       onEnterBack: () => animateTo(index),
@@ -298,7 +301,7 @@ function updateProjectOrder() {
     const currentEl = strongs[currentIndex % 2];
     const nextEl = strongs[(currentIndex + 1) % 2];
 
-    const newNum = String(targetIndex + 1).padStart(2, '0') + '.';
+    const newNum = String(targetIndex + 1).padStart(2, "0") + ".";
     nextEl.textContent = newNum;
 
     // 위치 초기화: 아래쪽에 배치
@@ -312,68 +315,78 @@ function updateProjectOrder() {
       },
     });
 
-    tl.to(currentEl, { yPercent: -100, duration: 0.2, ease: 'power2.in' }, 0).to(
-      nextEl,
-      { yPercent: 0, duration: 0.2, ease: 'power2.in' },
+    tl.to(
+      currentEl,
+      { yPercent: -100, duration: 0.2, ease: "power2.in" },
       0
-    );
+    ).to(nextEl, { yPercent: 0, duration: 0.2, ease: "power2.in" }, 0);
   }
 }
 
 // * =============== split text ===============v *//
 function splitTextEffect() {
-  document.querySelectorAll('.card').forEach((card) => {
-    const title = new SplitText(card.querySelector('.tit strong'), { type: 'chars' });
-    const text = new SplitText(card.querySelector('.tit span'), { type: 'chars' });
+  document.querySelectorAll(".card").forEach((card) => {
+    const title = new SplitText(card.querySelector(".tit strong"), {
+      type: "chars",
+    });
+    const text = new SplitText(card.querySelector(".tit span"), {
+      type: "chars",
+    });
 
-    gsap.set(title.chars, { y: '-10px', opacity: 0, filter: 'blur(15px)' });
-    gsap.set(text.chars, { y: '-5px', opacity: 0, filter: 'blur(15px)' });
+    gsap.set(title.chars, { y: "-10px", opacity: 0, filter: "blur(15px)" });
+    gsap.set(text.chars, { y: "-5px", opacity: 0, filter: "blur(15px)" });
 
-    card.addEventListener('mouseenter', function () {
+    card.addEventListener("mouseenter", function () {
       gsap.killTweensOf(title.chars);
       gsap.killTweensOf(text.chars);
 
       gsap.to(title.chars, {
-        y: '0',
-        filter: 'blur(0px)',
+        y: "0",
+        filter: "blur(0px)",
         opacity: 1,
         stagger: () => gsap.utils.random(0, 0.2),
         duration: 0.4,
-        ease: 'power2.out',
+        ease: "power2.out",
       });
 
       gsap.to(text.chars, {
-        y: '0',
-        filter: 'blur(0px)',
+        y: "0",
+        filter: "blur(0px)",
         opacity: 1,
         stagger: () => gsap.utils.random(0, 0.3),
         duration: 0.4,
-        ease: 'power2.out',
+        ease: "power2.out",
       });
     });
 
-    card.addEventListener('mouseleave', function () {
+    card.addEventListener("mouseleave", function () {
       gsap.killTweensOf(title.chars);
       gsap.killTweensOf(text.chars);
 
       gsap.to(title.chars, {
-        y: '10px',
-        filter: 'blur(5px)',
+        y: "10px",
+        filter: "blur(5px)",
         opacity: 0,
         stagger: () => gsap.utils.random(0, 0.2),
         duration: 0.4,
-        ease: 'power2.in',
-        onComplete: () => gsap.set(title.chars, { y: '-10px', opacity: 0, filter: 'blur(5px)' }), // 원래 상태로 복귀
+        ease: "power2.in",
+        onComplete: () =>
+          gsap.set(title.chars, {
+            y: "-10px",
+            opacity: 0,
+            filter: "blur(5px)",
+          }), // 원래 상태로 복귀
       });
 
       gsap.to(text.chars, {
-        y: '10px',
-        filter: 'blur(5px)',
+        y: "10px",
+        filter: "blur(5px)",
         opacity: 0,
         stagger: () => gsap.utils.random(0, 0.3),
         duration: 0.4,
-        ease: 'power2.in',
-        onComplete: () => gsap.set(text.chars, { y: '-5px', opacity: 0, filter: 'blur(5px)' }), // 원래 상태로 복귀
+        ease: "power2.in",
+        onComplete: () =>
+          gsap.set(text.chars, { y: "-5px", opacity: 0, filter: "blur(5px)" }), // 원래 상태로 복귀
       });
     });
   });
@@ -381,73 +394,73 @@ function splitTextEffect() {
 
 // * =============== split nav ===============v *//
 function splitNavEffect() {
-  const menuItems = document.querySelectorAll('nav li');
-  const menuText = document.querySelector('.menu .word');
+  const menuItems = document.querySelectorAll("nav li");
+  const menuText = document.querySelector(".menu .word");
 
   if (menuText) {
-    const splitLines = menuText.querySelectorAll('.split-line');
+    const splitLines = menuText.querySelectorAll(".split-line");
     if (splitLines.length < 2) return;
 
-    const splitText1 = new SplitText(splitLines[0], { type: 'chars' });
-    const splitText2 = new SplitText(splitLines[1], { type: 'chars' });
+    const splitText1 = new SplitText(splitLines[0], { type: "chars" });
+    const splitText2 = new SplitText(splitLines[1], { type: "chars" });
 
-    menuText.addEventListener('mouseenter', () => {
+    menuText.addEventListener("mouseenter", () => {
       gsap.to(splitLines[0], {
-        y: '-100%',
+        y: "-100%",
         duration: 0.12,
-        ease: 'power2.out',
+        ease: "power2.out",
       });
       gsap.to(splitLines[1], {
-        y: '-100%',
+        y: "-100%",
         duration: 0.12,
-        ease: 'power2.out',
+        ease: "power2.out",
       });
     });
 
-    menuText.addEventListener('mouseleave', () => {
+    menuText.addEventListener("mouseleave", () => {
       gsap.to(splitLines[0], {
         y: 0,
         duration: 0.12,
-        ease: 'power2.out',
+        ease: "power2.out",
       });
       gsap.to(splitLines[1], {
         y: 0,
         duration: 0.12,
-        ease: 'power2.out',
+        ease: "power2.out",
       });
     });
   }
 
   menuItems.forEach((item) => {
-    const splitLines = item.querySelectorAll('.split-line');
+    const splitLines = item.querySelectorAll(".split-line");
     if (splitLines.length < 2) return;
 
-    const splitText1 = new SplitText(splitLines[0], { type: 'chars' });
-    const splitText2 = new SplitText(splitLines[1], { type: 'chars' });
+    const splitText1 = new SplitText(splitLines[0], { type: "chars" });
+    const splitText2 = new SplitText(splitLines[1], { type: "chars" });
 
-    item.addEventListener('mouseenter', () => {
+    item.addEventListener("mouseenter", () => {
       gsap.to(splitLines[0], {
-        y: '-100%',
+        y: "-100%",
         duration: 0.15,
-        ease: 'power2.out',
+        ease: "power2.out",
       });
       gsap.to(splitLines[1], {
-        y: '-100%',
+        y: "-100%",
         duration: 0.15,
-        ease: 'power2.out',
+        ease: "power2.out",
       });
     });
 
-    item.addEventListener('mouseleave', () => {
+    item.addEventListener("mouseleave", () => {
       gsap.to(splitLines[0], {
         y: 0,
         duration: 0.15,
-        ease: 'power2.out',
+        ease: "power2.out",
       });
       gsap.to(splitLines[1], {
         y: 0,
         duration: 0.15,
-        ease: 'power2.out',
+        ease: "power2.out",
       });
     });
   });
@@ -455,8 +468,8 @@ function splitNavEffect() {
 
 // * =============== marquee text ===============v *//
 function marqueeTextEffect() {
-  const swiper = new Swiper('.marqueeSwiper', {
-    slidesPerView: 'auto',
+  const swiper = new Swiper(".marqueeSwiper", {
+    slidesPerView: "auto",
     speed: 4000,
     loop: true,
     spaceBetween: 20,
@@ -474,28 +487,28 @@ function marqueeTextEffect() {
 
 // * =============== scrollTrigger - footer ===============v *//
 function scrollFooter() {
-  const main = document.querySelector('.main');
+  const main = document.querySelector(".main");
 
   if (!main) return;
 
   const tl = gsap.timeline({
     scrollTrigger: {
-      trigger: 'footer',
-      start: 'top-=50% center',
-      end: 'top top',
-      ease: 'power2.out',
+      trigger: "footer",
+      start: "top-=50% center",
+      end: "top top",
+      ease: "power2.out",
       scrub: 1,
       // markers: true,
     },
   });
 
-  tl.to('.main > .content', {
+  tl.to(".main > .content", {
     scale: 0.97,
-    borderBottomLeftRadius: '20px',
-    borderBottomRightRadius: '20px',
+    borderBottomLeftRadius: "20px",
+    borderBottomRightRadius: "20px",
   }).fromTo(
-    'footer .content',
-    { opacity: 0.7, y: '-25%' },
+    "footer .content",
+    { opacity: 0.7, y: "-25%" },
     { opacity: 1, y: 0 },
     0 // 두 tl 모두 동시에 동작
   );
@@ -503,20 +516,20 @@ function scrollFooter() {
 
 // * =============== offsetTop ===============v *//
 function moveToOffsetTop() {
-  const menu = document.querySelectorAll('header nav li');
+  const menu = document.querySelectorAll("header nav li");
 
   menu.forEach((item) => {
-    item.addEventListener('click', function (e) {
-      const link = this.querySelector('a');
-      const targetId = link.getAttribute('href');
+    item.addEventListener("click", function (e) {
+      const link = this.querySelector("a");
+      const targetId = link.getAttribute("href");
 
-      if (!targetId.startsWith('#')) return;
+      if (!targetId.startsWith("#")) return;
 
       e.preventDefault();
 
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+        targetElement.scrollIntoView({ behavior: "smooth" });
       }
     });
   });
@@ -524,20 +537,20 @@ function moveToOffsetTop() {
 
 // * =============== backToTop ===============v *//
 function backToTop() {
-  const main = document.querySelector('.main');
-  const topBtn = document.querySelector('.backToTop');
+  const main = document.querySelector(".main");
+  const topBtn = document.querySelector(".backToTop");
 
   if (!main) return;
 
-  topBtn.addEventListener('click', function () {
+  topBtn.addEventListener("click", function () {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   });
 }
 
-window.addEventListener('load', function () {
+window.addEventListener("load", function () {
   // scrollSmoother();
   cursorFunc();
   checkProject();
@@ -554,7 +567,7 @@ window.addEventListener('load', function () {
   backToTop();
 });
 
-window.addEventListener('DOMContentLoaded', function () {
+window.addEventListener("DOMContentLoaded", function () {
   headerVisibility();
 });
 
