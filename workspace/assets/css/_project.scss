@@ -49,16 +49,16 @@
     p,
     span,
     li {
-      font-family: 'diatype';
-      font-size: 18px;
+      font-family: "diatype";
+      font-size: 16px;
       line-height: 120%;
       font-weight: 400;
       word-break: keep-all;
     }
     strong {
       display: block;
-      font-family: 'diatype';
-      font-size: 18px;
+      font-family: "diatype";
+      font-size: 16px;
       line-height: 120%;
       font-weight: 500;
       margin-bottom: 5px;
@@ -73,7 +73,7 @@
     }
 
     .prj-link a {
-      font-family: 'diatype';
+      font-family: "diatype";
       font-size: 14px;
       line-height: 120%;
       font-weight: 400;
@@ -101,7 +101,7 @@
       }
 
       span {
-        font-family: 'diatype';
+        font-family: "diatype";
         font-size: 12vh;
         line-height: 120%;
         color: $default-bl-color;
@@ -226,6 +226,24 @@
         overflow: hidden;
       }
     }
+
+    .row-03_mo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: calc(100% - 80px);
+      gap: 20px;
+      border-radius: 0;
+      margin-left: 40px;
+      margin-right: 40px;
+
+      div {
+        width: calc(33.333% - 10px);
+        height: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+    }
   }
 
   .next-btn {
@@ -241,7 +259,7 @@
       width: 100%;
       max-width: 400px;
       padding: 20px 30px;
-      font-family: 'diatype';
+      font-family: "diatype";
       font-size: 18px;
       line-height: 120%;
       font-weight: 500;
@@ -256,7 +274,7 @@
         transition: all 0.4s;
 
         &::after {
-          content: '↗';
+          content: "↗";
           position: absolute;
           display: inline-block;
           width: 20px;
@@ -265,7 +283,7 @@
           right: -8px;
           transform: translateY(-50%);
           opacity: 0;
-          font-family: 'diatype';
+          font-family: "diatype";
           font-size: 18px;
           line-height: 100%;
           font-weight: 500;
@@ -326,7 +344,7 @@
           transition: all 0.4s;
 
           &::after {
-            content: '↗';
+            content: "↗";
             width: 16px;
             height: 16px;
             right: -7px;
@@ -388,11 +406,11 @@
           display: inline-block;
 
           &::after {
-            content: ',';
+            content: ",";
           }
         }
         li:last-child::after {
-          content: '';
+          content: "";
         }
         li + li {
           margin-left: 5px;

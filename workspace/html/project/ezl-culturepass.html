@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="color-scheme" content="light only" />
+    <meta name="supported-color-schemes" content="light" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <title>Sejin</title>
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
+
+    <!-- importmap -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.176.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.176.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="wrap" id="smooth-wrapper">
+      <!-- header -->
+      <header>
+        <div class="inner">
+          <div class="logo">
+            <h1>
+              <a href="https://portfolio-sable-nine-81.vercel.app/">
+                ( Han )
+              </a>
+            </h1>
+          </div>
+
+          <div class="menu">
+            <a href="mailto:dev.sejinhan@gmail.com">
+              <span></span>
+              <span class="word">
+                <p class="split-line">HERE!</p>
+                <p class="split-line">HERE!</p>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <nav>
+          <ul>
+            <li>
+              <a href="#about">
+                <p class="split-line">About</p>
+                <p class="split-line">About</p>
+              </a>
+            </li>
+            <li>
+              <a href="#works">
+                <p class="split-line">Works</p>
+                <p class="split-line">Works</p>
+              </a>
+            </li>
+            <li>
+              <a href="#contact">
+                <p class="split-line">Contact</p>
+                <p class="split-line">Contact</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <!-- .header  -->
+
+      <div id="smooth-content" class="project">
+        <!-- content -->
+        <div class="content">
+          <div class="inner">
+            <!-- canvas -->
+            <canvas id="webgl-canvas"></canvas>
+
+            <div class="title-wrap stagger-prj">
+              <div class="prj-name-box">
+                <div class="prj-name">
+                  <span>{</span>
+                  <span class="tit">Culture Pass</span>
+                  <span>}</span>
+                </div>
+              </div>
+
+              <div class="row stagger-item">
+                <div class="prj-desc">
+                  <strong>(Description)</strong>
+                  <p>
+                    경기도민에게 다양한 문화·여가 혜택을 제공하는 WebView 기반의
+                    어플리케이션 서비스를 구현한 퍼블리싱 중심 프로젝트입니다.
+                    <br /><br />
+                    앱 내에서도 일관된 사용자 경험을 제공하기 위해 웹 표준 및 웹
+                    접근성 준수 기반의 시멘틱 마크업과 SCSS 모듈화 설계를
+                    적용하였으며, 미디어쿼리를 활용한 반응형 대응과 스크롤 기반
+                    인터랙션 구현, 크로스 브라우징 최적화를 통해 앱 환경에서도
+                    안정적인 UI를 구현하는 데 중점을 두었습니다.
+                  </p>
+
+                  <span>2025.05 ~ 2025.07</span>
+                </div>
+                <div class="prj-label">
+                  <strong>(Client)</strong>
+                  <span>이동의 즐거움</span>
+                </div>
+                <ul class="prj-skill">
+                  <strong>(Skills)</strong>
+                  <li>HTML5</li>
+                  <li>SCSS</li>
+                  <li>Javascript</li>
+                  <li>GSAP</li>
+                  <li>Git</li>
+                </ul>
+              </div>
+
+              <div class="row detail stagger-item">
+                <div class="prj-people">
+                  <strong>(Member)</strong>
+                  <span
+                    >Backend 2명, Frontend 3명, Publisher 2명, Designer 2명, UX
+                    3명 (총 12명)</span
+                  >
+                </div>
+                <ol class="prj-role">
+                  <strong>(Role)</strong>
+                  <li>
+                    1. 웹 접근성 준수 및 시멘트 마크업 구현 및 SCSS 기반 모듈화
+                    컴포넌트화 퍼블리싱
+                  </li>
+                  <li>
+                    2. 미디어쿼리를 통한 반응형 웹 구현 및 크로스 브라우징 대응
+                  </li>
+                  <li>3. 스크롤 기반 애니메이션 구현</li>
+                </ol>
+
+                <div class="prj-link">
+                  <a href="https://culturepass.co.kr/" target="_blank"
+                    >VIEW WEBSITE (<span>↗</span>)</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="content-wrap stagger-prj">
+              <div class="prj">
+                <div class="prj-box row-01 stagger-item">
+                  <div>
+                    <img
+                      src="../../assets/images/project/project_ezl.png"
+                      alt="이동의 즐거움 경기컬처패스 메인 페이지"
+                    />
+                  </div>
+                </div>
+
+                <div class="prj-box row-03_mo">
+                  <div class="stagger-item">
+                    <img
+                      src="../../assets/images/project/ezl/prj_ezl_01.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="stagger-item">
+                    <img
+                      src="../../assets/images/project/ezl/prj_ezl_02.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="stagger-item">
+                    <img
+                      src="../../assets/images/project/ezl/prj_ezl_03.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+
+                <div class="prj-box row-03_mo">
+                  <div class="stagger-item">
+                    <img
+                      src="../../assets/images/project/ezl/prj_ezl_04.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="stagger-item">
+                    <img
+                      src="../../assets/images/project/ezl/prj_ezl_05.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="stagger-item">
+                    <img
+                      src="../../assets/images/project/ezl/prj_ezl_06.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+
+                <div class="prj-box row-03_mo">
+                  <div class="stagger-item">
+                    <img
+                      src="../../assets/images/project/ezl/prj_ezl_07.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="stagger-item">
+                    <img
+                      src="../../assets/images/project/ezl/prj_ezl_08.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="stagger-item">
+                    <img
+                      src="../../assets/images/project/ezl/prj_ezl_09.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="next-btn stagger-item">
+                <a href="./simmons.html">
+                  <span>Next Project_SIMMONS</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- cursor -->
+      <div id="cursor"></div>
+    </div>
+
+    <!-- script -->
+    <script src="../../assets/lib/jquery-3.6.0.min.js"></script>
+    <script src="../../assets/lib/swiper-bundle.min.js"></script>
+    <script src="../../assets/lib/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="../../assets/lib/ScrollSmoother.min.js"></script>
+    <script src="../../assets/lib/SplitText.min.js"></script>
+
+    <!-- for Local -->
+    <script type="text/javascript" src="../../assets/js/common.js"></script>
+    <script type="text/javascript" src="../../assets/js/project.js"></script>
+    <script type="module" src="../../assets/js/project-canvas.js"></script>
+
+    <!-- for Deploy -->
+    <!-- <script type="text/javascript" src="../../../workspace/assets/js/common.js"></script>
+    <script type="text/javascript" src="../../../workspace/assets/js/project.js"></script> -->
+    <!-- <script type="text/javascript" src="../../../workspace/assets/js/project-canvas.js"></script> -->
+  </body>
+</html>
